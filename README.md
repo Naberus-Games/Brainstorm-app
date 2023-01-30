@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # brainstorm
 
 A new Flutter project.
@@ -18,4 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 =======
 # Brainstorm-app
 An app to brainstorm, and create with whiteboards, notes, and a script editor.
->>>>>>> 48972b8534937068101345af0874f83565b63b8c
+
