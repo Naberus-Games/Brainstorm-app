@@ -1,4 +1,4 @@
-//import 'package:brainstorm/CustomCarousel.dart';
+import 'CustomCarousel.dart';
 import 'SearchInput.dart';
 import 'package:flutter/material.dart';
 
@@ -24,17 +24,28 @@ class MyApp extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       'Files',
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium
+                          ?.copyWith(color: Colors.white),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: IconButton(
-                      icon: const Icon(Icons.person),
-                      tooltip: 'Profile',
-                      onPressed: () {
-                        // Add code to open profile page
-                      },
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                        color: Color(0xfeD9D9D9),
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.person, color: Colors.black),
+                        tooltip: 'Profile',
+                        onPressed: () {
+                          // Add code to open profile page
+                        },
+                      ),
                     ),
                   ),
                 ],
@@ -45,12 +56,33 @@ class MyApp extends StatelessWidget {
                     textController: TextEditingController(),
                     hintText: 'Search'),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Recents',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+              // const Padding(
+              //   padding: EdgeInsets.all(8.0),
+              //   child: CustomCarousel(),
+              // ),
             ],
           ),
         ),
+        backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           tooltip: 'New',
+          backgroundColor: const Color(0xff74D9DF),
           child: const Icon(Icons.add),
         ),
       ),
