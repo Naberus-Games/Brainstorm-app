@@ -36,11 +36,12 @@ class MyApp extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: const BoxDecoration(
-                        color: Color(0xfeD9D9D9),
+                        color: Color.fromARGB(253, 255, 255, 255),
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.person, color: Colors.black),
+                        icon: const Icon(Icons.person,
+                            color: Color.fromARGB(255, 116, 218, 223)),
                         tooltip: 'Profile',
                         onPressed: () {
                           // Add code to open profile page
