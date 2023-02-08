@@ -1,10 +1,13 @@
 import 'widgets/CustomCarousel.dart';
+import 'widgets/PopupMenu.dart';
 import 'widgets/SearchInput.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
+
+const Color ThemeColor = Color(0xff74D9DF);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -44,7 +47,16 @@ class MyApp extends StatelessWidget {
                             color: Color.fromARGB(255, 116, 218, 223)),
                         tooltip: 'Profile',
                         onPressed: () {
-                          // Add code to open profile page
+                          // const Popup(
+                          //   menuList: [
+                          //     PopupMenuItem(
+                          //       child: Text('Option 1'),
+                          //     ),
+                          //     PopupMenuItem(
+                          //       child: Text('Option 2'),
+                          //     ),
+                          //   ],
+                          // );
                         },
                       ),
                     ),
@@ -79,15 +91,26 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              const CategoriesListMallika1()
+              const CarouselView()
             ],
           ),
         ),
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            // const Popup(
+            //   menuList: [
+            //     PopupMenuItem(
+            //       child: Text('Option 1'),
+            //     ),
+            //     PopupMenuItem(
+            //       child: Text('Option 2'),
+            //     ),
+            //   ],
+            // );
+          },
           tooltip: 'New',
-          backgroundColor: const Color(0xff74D9DF),
+          backgroundColor: ThemeColor,
           child: const Icon(Icons.add),
         ),
       ),
