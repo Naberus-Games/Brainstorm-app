@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CategoriesListMallika1 extends StatelessWidget {
-  const CategoriesListMallika1({Key? key}) : super(key: key);
+class CarouselView extends StatelessWidget {
+  const CarouselView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
-      child: ListView(
+      child: PageView(
         scrollDirection: Axis.horizontal,
+        pageSnapping: true,
         children: [
           CategoryCardMallika1(
             title: "Cake",

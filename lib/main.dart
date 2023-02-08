@@ -1,5 +1,5 @@
 import 'widgets/CustomCarousel.dart';
-import 'widgets/ProfilePopup.dart';
+import 'widgets/PopupMenu.dart';
 import 'widgets/SearchInput.dart';
 import 'package:flutter/material.dart';
 
@@ -46,16 +46,16 @@ class MyApp extends StatelessWidget {
                         icon: const Icon(Icons.person, color: ThemeColor),
                         tooltip: 'Profile',
                         onPressed: () {
-                          const DropDownMenuFb1(
-                            menuList: [
-                              PopupMenuItem(
-                                child: Text('Option 1'),
-                              ),
-                              PopupMenuItem(
-                                child: Text('Option 2'),
-                              ),
-                            ],
-                          );
+                          // const Popup(
+                          //   menuList: [
+                          //     PopupMenuItem(
+                          //       child: Text('Option 1'),
+                          //     ),
+                          //     PopupMenuItem(
+                          //       child: Text('Option 2'),
+                          //     ),
+                          //   ],
+                          // );
                         },
                       ),
                     ),
@@ -90,13 +90,24 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              const CategoriesListMallika1()
+              const CarouselView()
             ],
           ),
         ),
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            // const Popup(
+            //   menuList: [
+            //     PopupMenuItem(
+            //       child: Text('Option 1'),
+            //     ),
+            //     PopupMenuItem(
+            //       child: Text('Option 2'),
+            //     ),
+            //   ],
+            // );
+          },
           tooltip: 'New',
           backgroundColor: ThemeColor,
           child: const Icon(Icons.add),

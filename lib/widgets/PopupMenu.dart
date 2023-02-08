@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DropDownMenuFb1 extends StatelessWidget {
+class Popup extends StatelessWidget {
   final List<PopupMenuEntry> menuList;
   final Color color;
   final Widget icon;
-  const DropDownMenuFb1(
+  const Popup(
       {required this.menuList,
       this.color = Colors.white,
       this.icon = const Icon(
