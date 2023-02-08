@@ -1,10 +1,13 @@
 import 'widgets/CustomCarousel.dart';
+import 'widgets/ProfilePopup.dart';
 import 'widgets/SearchInput.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+const Color ThemeColor = Color(0xff74D9DF);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -40,10 +43,19 @@ class MyApp extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.person, color: Colors.black),
+                        icon: const Icon(Icons.person, color: ThemeColor),
                         tooltip: 'Profile',
                         onPressed: () {
-                          // Add code to open profile page
+                          const DropDownMenuFb1(
+                            menuList: [
+                              PopupMenuItem(
+                                child: Text('Option 1'),
+                              ),
+                              PopupMenuItem(
+                                child: Text('Option 2'),
+                              ),
+                            ],
+                          );
                         },
                       ),
                     ),
@@ -86,7 +98,7 @@ class MyApp extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           tooltip: 'New',
-          backgroundColor: const Color(0xff74D9DF),
+          backgroundColor: ThemeColor,
           child: const Icon(Icons.add),
         ),
       ),
