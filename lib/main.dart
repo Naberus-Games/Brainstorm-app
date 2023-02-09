@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                           .textTheme
                           .headlineMedium
                           ?.copyWith(color: Colors.white),
-                    ),
+                    ), //Change
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
