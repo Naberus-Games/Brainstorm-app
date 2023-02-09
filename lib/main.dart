@@ -39,24 +39,20 @@ class MyApp extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: const BoxDecoration(
-                        color: Color(0xfeD9D9D9),
+                        color: Colors.white,
                         shape: BoxShape.circle,
                       ),
-                      child: IconButton(
+                      child: PopupMenuButton(
                         icon: const Icon(Icons.person, color: ThemeColor),
+                        itemBuilder: (context) => [
+                          const PopupMenuItem(
+                            child: Text('Option 1'),
+                          ),
+                          const PopupMenuItem(
+                            child: Text('Option 2'),
+                          ),
+                        ],
                         tooltip: 'Profile',
-                        onPressed: () {
-                          // const Popup(
-                          //   menuList: [
-                          //     PopupMenuItem(
-                          //       child: Text('Option 1'),
-                          //     ),
-                          //     PopupMenuItem(
-                          //       child: Text('Option 2'),
-                          //     ),
-                          //   ],
-                          // );
-                        },
                       ),
                     ),
                   ),
@@ -96,21 +92,20 @@ class MyApp extends StatelessWidget {
         ),
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // const Popup(
-            //   menuList: [
-            //     PopupMenuItem(
-            //       child: Text('Option 1'),
-            //     ),
-            //     PopupMenuItem(
-            //       child: Text('Option 2'),
-            //     ),
-            //   ],
-            // );
-          },
-          tooltip: 'New',
+          onPressed: () {},
           backgroundColor: ThemeColor,
-          child: const Icon(Icons.add),
+          child: PopupMenuButton(
+            icon: const Icon(Icons.add),
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                child: Text('Option 1'),
+              ),
+              const PopupMenuItem(
+                child: Text('Option 2'),
+              ),
+            ],
+            tooltip: 'New',
+          ),
         ),
       ),
     );
