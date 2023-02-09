@@ -39,12 +39,11 @@ class MyApp extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: const BoxDecoration(
-                        color: Color.fromARGB(253, 255, 255, 255),
+                        color: Color(0xfeD9D9D9),
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.person,
-                            color: Color.fromARGB(255, 116, 218, 223)),
+                        icon: const Icon(Icons.person, color: Colors.black),
                         tooltip: 'Profile',
                         onPressed: () {
                           // const Popup(
