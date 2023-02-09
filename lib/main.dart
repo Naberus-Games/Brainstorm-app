@@ -1,10 +1,13 @@
 import 'widgets/CustomCarousel.dart';
+import 'widgets/PopupMenu.dart';
 import 'widgets/SearchInput.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
+
+const Color ThemeColor = Color(0xff74D9DF);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -36,15 +39,23 @@ class MyApp extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: const BoxDecoration(
-                        color: Color.fromARGB(253, 255, 255, 255),
+                        color: Color(0xfeD9D9D9),
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.person,
-                            color: Color.fromARGB(255, 116, 218, 223)),
+                        icon: const Icon(Icons.person, color: Colors.black),
                         tooltip: 'Profile',
                         onPressed: () {
-                          // Add code to open profile page
+                          // const Popup(
+                          //   menuList: [
+                          //     PopupMenuItem(
+                          //       child: Text('Option 1'),
+                          //     ),
+                          //     PopupMenuItem(
+                          //       child: Text('Option 2'),
+                          //     ),
+                          //   ],
+                          // );
                         },
                       ),
                     ),
@@ -79,15 +90,26 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              const CategoriesListMallika1()
+              const CarouselView()
             ],
           ),
         ),
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            // const Popup(
+            //   menuList: [
+            //     PopupMenuItem(
+            //       child: Text('Option 1'),
+            //     ),
+            //     PopupMenuItem(
+            //       child: Text('Option 2'),
+            //     ),
+            //   ],
+            // );
+          },
           tooltip: 'New',
-          backgroundColor: const Color(0xff74D9DF),
+          backgroundColor: ThemeColor,
           child: const Icon(Icons.add),
         ),
       ),
