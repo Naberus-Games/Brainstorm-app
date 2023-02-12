@@ -1,13 +1,10 @@
 import 'widgets/CustomCarousel.dart';
-import 'widgets/PopupMenu.dart';
 import 'widgets/SearchInput.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
-
-const Color ThemeColor = Color(0xff74D9DF);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,7 +28,7 @@ class MyApp extends StatelessWidget {
                           .textTheme
                           .headlineMedium
                           ?.copyWith(color: Colors.white),
-                    ),
+                    ), //Change
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
@@ -86,7 +83,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              const CarouselView()
+              const CategoriesListMallika1()
             ],
           ),
         ),

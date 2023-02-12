@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
 
-class CarouselView extends StatelessWidget {
-  const CarouselView({Key? key}) : super(key: key);
+class CategoriesListMallika1 extends StatelessWidget {
+  const CategoriesListMallika1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
-      child: PageView(
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        pageSnapping: true,
         children: [
           CategoryCardMallika1(
-            title: "Cake",
+            title: "Whiteboard",
             image:
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/malika%2FImage-1.png?alt=media&token=245741de-7966-4f5b-805f-6dd8e5dbea80",
+                "https://imgs.search.brave.com/HB14see-Aink2I25XWHuDI7XX7lHccSFwUdyXzizn1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kam53/NWEwd3N6a3kwLmNs/b3VkZnJvbnQubmV0/L2lua2ZhY3Rvcnl3/cC93cC1jb250ZW50/L3VwbG9hZHMvMjAx/Ni8xMC9DbGVhbmVk/LUV4YW1wbGUyLmpw/Zw",
             onTap: () {},
             selected: false,
           ),
           CategoryCardMallika1(
-              title: "Pasta",
+              title: "Notes",
               image:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/malika%2FImage-2.png?alt=media&token=3ae6f4e6-53cd-4ac1-9e12-b491c351771a",
+                  "https://miro.medium.com/max/4096/1*JPIrVxzu4KmwD7aLf60Q5g.png",
               onTap: () {}),
           CategoryCardMallika1(
-              title: "Drinks",
+              title: "Script",
               image:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/malika%2FImage-3.png?alt=media&token=43ed89ab-93de-42ca-90df-0231699eebf0",
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Screenplay_example.svg/351px-Screenplay_example.svg.png",
               onTap: () {}),
           CategoryCardMallika1(
-              title: "Rice",
+              title: "To-Do",
               image:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/malika%2FImage-4.png?alt=media&token=0c2592ca-7bbc-40fa-80ae-163d739e308f",
+                  "https://assets.hongkiat.com/uploads/to-do-lists-by-hand/bj-start-here-future-log.jpg",
               onTap: () {}),
         ],
       ),
