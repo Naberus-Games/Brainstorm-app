@@ -37,15 +37,20 @@ class MyApp extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: const BoxDecoration(
-                        color: Color(0xfeD9D9D9),
+                        color: Colors.white,
                         shape: BoxShape.circle,
                       ),
-                      child: IconButton(
-                        icon: const Icon(Icons.person, color: Colors.black),
+                      child: PopupMenuButton(
+                        icon: const Icon(Icons.person, color: ThemeColor),
+                        itemBuilder: (context) => [
+                          const PopupMenuItem(
+                            child: Text('Option 1'),
+                          ),
+                          const PopupMenuItem(
+                            child: Text('Option 2'),
+                          ),
+                        ],
                         tooltip: 'Profile',
-                        onPressed: () {
-                          // Add code to open profile page
-                        },
                       ),
                     ),
                   ),
@@ -80,9 +85,19 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          tooltip: 'New',
-          backgroundColor: const Color(0xff74D9DF),
-          child: const Icon(Icons.add),
+          backgroundColor: ThemeColor,
+          child: PopupMenuButton(
+            icon: const Icon(Icons.add),
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                child: Text('Option 1'),
+              ),
+              const PopupMenuItem(
+                child: Text('Option 2'),
+              ),
+            ],
+            tooltip: 'New',
+          ),
         ),
       ),
     );
