@@ -1,10 +1,12 @@
-import 'widgets/CustomCarousel.dart';
-import 'widgets/SearchInput.dart';
+import 'widgets/search_input.dart';
 import 'package:flutter/material.dart';
+import 'widgets/custom_carousel.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
+
+const Color themeColor = Color(0xff74D9DF);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -41,13 +43,35 @@ class MyApp extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: PopupMenuButton(
-                        icon: const Icon(Icons.person, color: ThemeColor),
+                        icon: const Icon(Icons.person, color: themeColor),
+                        color: const Color.fromRGBO(41, 40, 40, 1),
                         itemBuilder: (context) => [
-                          const PopupMenuItem(
-                            child: Text('Option 1'),
+                          PopupMenuItem(
+                            child: Text(
+                              'Profile',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: Colors.white),
+                            ),
                           ),
-                          const PopupMenuItem(
-                            child: Text('Option 2'),
+                          PopupMenuItem(
+                            child: Text(
+                              'Settings',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: Colors.white),
+                            ),
+                          ),
+                          PopupMenuItem(
+                            child: Text(
+                              'Logout',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: Colors.red),
+                            ),
                           ),
                         ],
                         tooltip: 'Profile',
@@ -85,7 +109,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          backgroundColor: ThemeColor,
+          backgroundColor: themeColor,
           child: PopupMenuButton(
             icon: const Icon(Icons.add),
             itemBuilder: (context) => [

@@ -6,7 +6,7 @@ class Popup extends StatelessWidget {
   final Widget icon;
   const Popup(
       {required this.menuList,
-      this.color = Colors.white,
+      this.color = Colors.black,
       this.icon = const Icon(
         Icons.more_vert,
         color: Color(0xff4338CA),
