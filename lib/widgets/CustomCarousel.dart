@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CategoriesListMallika1 extends StatelessWidget {
-  const CategoriesListMallika1({Key? key}) : super(key: key);
+class CustomCarousel extends StatelessWidget {
+  const CustomCarousel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,24 +10,24 @@ class CategoriesListMallika1 extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          CategoryCardMallika1(
+          Customcarousel(
             title: "Whiteboard",
             image:
                 "https://imgs.search.brave.com/HB14see-Aink2I25XWHuDI7XX7lHccSFwUdyXzizn1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kam53/NWEwd3N6a3kwLmNs/b3VkZnJvbnQubmV0/L2lua2ZhY3Rvcnl3/cC93cC1jb250ZW50/L3VwbG9hZHMvMjAx/Ni8xMC9DbGVhbmVk/LUV4YW1wbGUyLmpw/Zw",
             onTap: () {},
             selected: false,
           ),
-          CategoryCardMallika1(
+          Customcarousel(
               title: "Notes",
               image:
                   "https://miro.medium.com/max/4096/1*JPIrVxzu4KmwD7aLf60Q5g.png",
               onTap: () {}),
-          CategoryCardMallika1(
+          Customcarousel(
               title: "Script",
               image:
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Screenplay_example.svg/351px-Screenplay_example.svg.png",
               onTap: () {}),
-          CategoryCardMallika1(
+          Customcarousel(
               title: "To-Do",
               image:
                   "https://assets.hongkiat.com/uploads/to-do-lists-by-hand/bj-start-here-future-log.jpg",
@@ -38,12 +38,12 @@ class CategoriesListMallika1 extends StatelessWidget {
   }
 }
 
-class CategoryCardMallika1 extends StatelessWidget {
+class Customcarousel extends StatelessWidget {
   final String title;
   final String image;
   final Function() onTap;
   final bool selected;
-  const CategoryCardMallika1(
+  const Customcarousel(
       {required this.title,
       required this.image,
       required this.onTap,

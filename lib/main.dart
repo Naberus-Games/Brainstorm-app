@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium
-                          ?.copyWith(color: Colors.white),
+                          ?.copyWith(
+                              color: Colors.white, fontWeight: FontWeight.bold),
                     ), //Change
                   ),
                   Padding(
@@ -66,19 +67,13 @@ class MyApp extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall
-                          ?.copyWith(color: Colors.white),
+                          ?.copyWith(
+                              color: Colors.white, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
               ),
-              Row(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                  ),
-                ],
-              ),
-              const CategoriesListMallika1()
+              const CustomCarousel()
             ],
           ),
         ),
