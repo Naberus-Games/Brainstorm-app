@@ -112,12 +112,25 @@ class MyApp extends StatelessWidget {
           backgroundColor: themeColor,
           child: PopupMenuButton(
             icon: const Icon(Icons.add),
+            color: const Color.fromRGBO(41, 40, 40, 1),
             itemBuilder: (context) => [
-              const PopupMenuItem(
-                child: Text('Option 1'),
+              PopupMenuItem(
+                child: Text(
+                  'Whiteboard',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.white),
+                ),
               ),
-              const PopupMenuItem(
-                child: Text('Option 2'),
+              PopupMenuItem(
+                child: Text(
+                  'Notes',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.white),
+                ),
               ),
             ],
             tooltip: 'New',
