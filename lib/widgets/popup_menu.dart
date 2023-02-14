@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Popup extends StatelessWidget {
   final List<PopupMenuEntry> menuList;
   final Color color;
-  final Widget icon;
+  final Widget? icon;
   const Popup(
       {required this.menuList,
       this.color = Colors.black,
@@ -17,6 +17,7 @@ class Popup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       color: color,
       icon: icon,
       itemBuilder: (BuildContext context) => menuList,
