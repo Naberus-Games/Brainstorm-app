@@ -1,6 +1,9 @@
+import 'package:brainstorm/pages/profile.dart';
+
 import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_carousel.dart';
+import 'Settings.dart';
 
 const Color themeColor = Color(0xff74D9DF);
 
@@ -8,9 +11,7 @@ class FilesScreens extends StatelessWidget {
   const FilesScreens({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -57,7 +58,13 @@ class FilesScreens extends StatelessWidget {
                                     .bodyMedium
                                     ?.copyWith(color: Colors.white),
                               ),
-                              onTap: () => (AboutDialog),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ProfileScreen()));
+                              },
                             ),
                           ),
                           PopupMenuItem(
@@ -73,6 +80,13 @@ class FilesScreens extends StatelessWidget {
                                     .bodyMedium
                                     ?.copyWith(color: Colors.white),
                               ),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SettingsScreen()));
+                              },
                             ),
                           ),
                           PopupMenuItem(
@@ -198,7 +212,5 @@ class FilesScreens extends StatelessWidget {
             tooltip: 'New',
           ),
         ),
-      ),
-    );
-  }
+      );
 }
