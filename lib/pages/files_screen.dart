@@ -1,9 +1,9 @@
-import 'package:brainstorm/pages/profile.dart';
+import 'package:brainstorm/pages/profile_screen.dart';
 
 import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_carousel.dart';
-import 'Settings.dart';
+import 'settings_screen.dart';
 
 const Color themeColor = Color(0xff74D9DF);
 

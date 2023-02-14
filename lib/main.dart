@@ -1,4 +1,4 @@
-import 'pages/files_screens.dart';
+import 'package:brainstorm/pages/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const MaterialApp(
-        home: FilesScreens(),
+        home: LoginScreen(),
       );
 }
