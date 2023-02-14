@@ -1,4 +1,5 @@
 import 'package:brainstorm/pages/profile_screen.dart';
+import 'package:brainstorm/widgets/categories_button.dart';
 
 import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
@@ -151,7 +152,50 @@ class FilesScreens extends StatelessWidget {
                     ),
                   ],
                 ),
-                const CustomCarousel()
+                const CustomCarousel(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        'Categories',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
+                makeButton(Icons.crop_original, "Whiteboard"),
+                makeButton(Icons.notes, "Notes"),
+                makeButton(Icons.check_box, "Todo"),
+                makeButton(Icons.edit_document, "Scripts"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        'Storage',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
+                // makeButton(Icons.location_city, "Local/SMB"),
+                // makeButton(Icons.cloud, "iCloud"),
+                // makeButton(Icons.wb_cloudy, "OneDrive"),
+                // makeButton(Icons.add_to_drive_outlined, "Google Drive"),
+                // makeButton(Icons.flash_on, "Brainstorm Cloud"),
               ],
             ),
           ),
