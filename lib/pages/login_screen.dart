@@ -34,8 +34,10 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const FilesScreens()));
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const FilesScreens()),
+                (route) => false);
           },
           backgroundColor: themeColor,
           child: const Icon(Icons.login),
