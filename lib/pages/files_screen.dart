@@ -3,6 +3,7 @@ import 'package:brainstorm/pages/profile_screen.dart';
 import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_carousel.dart';
+import 'login_screen.dart';
 import 'settings_screen.dart';
 
 const Color themeColor = Color(0xff74D9DF);
@@ -102,6 +103,14 @@ class FilesScreens extends StatelessWidget {
                                     .bodyMedium
                                     ?.copyWith(color: Colors.red),
                               ),
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginScreen()),
+                                    (route) => false);
+                              },
                             ),
                           ),
                         ],
@@ -145,7 +154,10 @@ class FilesScreens extends StatelessWidget {
             offset: Offset.fromDirection(0, 100),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0)),
-            icon: const Icon(Icons.add),
+            icon: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
             color: const Color(0xff3D3C3C),
             itemBuilder: (context) => [
               PopupMenuItem(
