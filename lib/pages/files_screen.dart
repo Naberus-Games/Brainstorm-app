@@ -12,15 +12,15 @@ class FilesScreens extends StatelessWidget {
   const FilesScreens({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: GestureDetector(
-          onTap: () {
-            FocusScopeNode currentFocus = FocusScope.of(context);
-            if (!currentFocus.hasPrimaryFocus) {
-              currentFocus.unfocus();
-            }
-          },
-          child: SafeArea(
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        child: Scaffold(
+          body: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -155,83 +155,83 @@ class FilesScreens extends StatelessWidget {
               ],
             ),
           ),
-        ),
-        backgroundColor: const Color(0xff292828),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: themeColor,
-          child: PopupMenuButton(
-            offset: Offset.fromDirection(0, 100),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0)),
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
+          backgroundColor: const Color(0xff292828),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: themeColor,
+            child: PopupMenuButton(
+              offset: Offset.fromDirection(0, 100),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0)),
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              color: const Color(0xff3D3C3C),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.crop_original,
+                      color: themeColor,
+                    ),
+                    title: Text(
+                      'Whiteboard',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.notes,
+                      color: themeColor,
+                    ),
+                    title: Text(
+                      'Notes',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.check_box,
+                      color: themeColor,
+                    ),
+                    title: Text(
+                      'Todo',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.edit_document,
+                      color: themeColor,
+                    ),
+                    title: Text(
+                      'Scripts',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+              tooltip: 'New',
             ),
-            color: const Color(0xff3D3C3C),
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                child: ListTile(
-                  leading: const Icon(
-                    Icons.crop_original,
-                    color: themeColor,
-                  ),
-                  title: Text(
-                    'Whiteboard',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
-                  ),
-                ),
-              ),
-              PopupMenuItem(
-                child: ListTile(
-                  leading: const Icon(
-                    Icons.notes,
-                    color: themeColor,
-                  ),
-                  title: Text(
-                    'Notes',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
-                  ),
-                ),
-              ),
-              PopupMenuItem(
-                child: ListTile(
-                  leading: const Icon(
-                    Icons.check_box,
-                    color: themeColor,
-                  ),
-                  title: Text(
-                    'Todo',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
-                  ),
-                ),
-              ),
-              PopupMenuItem(
-                child: ListTile(
-                  leading: const Icon(
-                    Icons.edit_document,
-                    color: themeColor,
-                  ),
-                  title: Text(
-                    'Scripts',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-            tooltip: 'New',
           ),
         ),
       );
