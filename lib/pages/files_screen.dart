@@ -44,7 +44,7 @@ class FilesScreens extends StatelessWidget {
                   ),
                   child: PopupMenuButton(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(.0)),
+                        borderRadius: BorderRadius.circular(16.0)),
                     icon: const Icon(Icons.person, color: themeColor),
                     color: const Color(0xff3D3C3C),
                     itemBuilder: (context) => [

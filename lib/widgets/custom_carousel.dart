@@ -6,6 +6,7 @@ class CustomCarousel extends StatefulWidget {
   const CustomCarousel({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _CustomCarouselState createState() => _CustomCarouselState();
 }
 
@@ -140,7 +141,7 @@ class AnimatedPageIndicatorFb1 extends StatelessWidget {
 
   double _calcRowSize() {
     //Calculates the size of the outer row that creates spacing that is equivalent to the width of a dot
-    final int widthFactor = 2; //assuming spacing is equal to the width of a dot
+    const int widthFactor = 2; //assuming spacing is equal to the width of a dot
     return (dotWidth * numPages * widthFactor) + activeDotWidth - dotWidth;
   }
 
@@ -191,10 +192,10 @@ class AnimatedPageIndicatorDot extends StatelessWidget {
     return AnimatedContainer(
       width: isActive ? activeWidth : width,
       height: isActive ? activeHeight : height,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
           gradient: isActive ? activeGradient : gradient,
-          borderRadius: BorderRadius.all(Radius.circular(30))),
+          borderRadius: const BorderRadius.all(Radius.circular(30))),
     );
   }
 }
