@@ -79,8 +79,8 @@ Widget customBtn_with_modifier(IconData icon, String text, bool switchValue) {
             onChanged: (value) {
               //update value
             },
-            activeTrackColor: Colors.greenAccent,
-            activeColor: Colors.green,
+            activeTrackColor: themeColor,
+            activeColor: themeColor,
           ),
         ],
       ),

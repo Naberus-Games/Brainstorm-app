@@ -1,6 +1,6 @@
-import 'package:brainstorm/widgets/text_input.dart';
+import 'package:brainstorm/widgets/custom_headings.dart';
+import 'package:brainstorm/widgets/entry_box.dart';
 
-import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 
 const Color themeColor = Color(0xff74D9DF);
@@ -20,71 +20,34 @@ class ProfileScreen extends StatelessWidget {
           body: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        'Profile',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium
-                            ?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SearchInput(
-                      textController: TextEditingController(),
-                      hintText: 'Search'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        'Personal',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 12, 12, 5),
-                  child: TextInput(
-                      textController: TextEditingController(),
-                      hintText: 'First Name'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-                  child: TextInput(
-                      textController: TextEditingController(),
-                      hintText: 'Last Name'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-                  child: TextInput(
-                      textController: TextEditingController(),
-                      hintText: 'User Name'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-                  child: TextInput(
-                      textController: TextEditingController(),
-                      hintText: 'Email'),
-                ),
+              children: const <Widget>[
+                MainHeading(text: "Profile"),
+                //need to add profile icon here
+
+                // Container(
+                //   padding: EdgeInsets.all(20),
+                //   child: CircleAvatar(
+                //     backgroundImage: AssetImage('assets/profile_icon.jpg'),
+                //     radius: 70,
+                //   ),
+                // ),
+
+                //cant get this to work :(
+
+                CustomEntry(hintText: "First Name"),
+                CustomEntry(hintText: "Last Name"),
+                CustomEntry(hintText: "User Name"),
+                CustomEntry(hintText: "Email"),
+                SubHeading(text: "Security"),
+                CustomEntry(hintText: "Current Password"),
+                CustomEntry(hintText: "New Password"),
+                CustomEntry(hintText: "Confirm Password"),
+                // BarButton(
+                //   text: "Update",
+                //   onPressed: () {},
+                // ),
+                //wont let you put button unless you add action, dont know
+                //how to get around this for now
               ],
             ),
           ),
