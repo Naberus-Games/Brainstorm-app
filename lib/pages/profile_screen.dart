@@ -3,8 +3,6 @@ import 'package:brainstorm/widgets/entry_box.dart';
 
 import 'package:flutter/material.dart';
 
-const Color themeColor = Color(0xff74D9DF);
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -17,11 +15,20 @@ class ProfileScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
+          appBar: AppBar(
+            centerTitle: false,
+            title: const Text(
+              "Profile",
+              textAlign: TextAlign.right,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            ),
+            backgroundColor: const Color(0xff292828),
+            shadowColor: Colors.transparent,
+          ),
           body: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: const <Widget>[
-                MainHeading(text: "Profile"),
                 //need to add profile icon here
 
                 // Container(

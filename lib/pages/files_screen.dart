@@ -12,7 +12,7 @@ import 'Categories_files/scripts_files_screen.dart';
 import 'login_screen.dart';
 import 'settings_screen.dart';
 
-const Color themeColor = Color(0xff74D9DF);
+const MaterialColor themeColor = Colors.lightBlue;
 
 class FilesScreens extends StatelessWidget {
   const FilesScreens({super.key});
@@ -31,7 +31,10 @@ class FilesScreens extends StatelessWidget {
             title: const Text(
               "Files",
               textAlign: TextAlign.right,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.white),
             ),
             actions: [
               Padding(
@@ -126,7 +129,6 @@ class FilesScreens extends StatelessWidget {
           ),
           body: SafeArea(
             child: ListView(
-              // mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(12.0),

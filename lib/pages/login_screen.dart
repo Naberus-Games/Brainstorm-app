@@ -1,7 +1,7 @@
 import 'package:brainstorm/pages/files_screen.dart';
 import 'package:flutter/material.dart';
 
-const Color themeColor = Color(0xff74D9DF);
+const MaterialColor themeColor = Colors.lightBlue;
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

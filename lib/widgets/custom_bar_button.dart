@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color themeColor = Color(0xff74D9DF);
+const MaterialColor themeColor = Colors.lightBlue;
 
 class BarButton extends StatelessWidget {
   final String text;
@@ -11,8 +11,8 @@ class BarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryColor = themeColor;
-    const secondaryColor = Color(0xff6D28D9);
-    const accentColor = Color(0xffffffff);
+    const secondaryColor = Colors.lightBlueAccent;
+    const accentColor = Colors.white;
 
     const double borderRadius = 15;
 

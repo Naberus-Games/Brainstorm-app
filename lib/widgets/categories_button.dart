@@ -1,8 +1,11 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
-const Color themeColor = Color(0xff74D9DF);
+const MaterialColor themeColor = Colors.lightBlue;
+
 const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
-const radialVal = 12.0;
+const radialVal = 25.0;
 
 Widget customBtn(IconData icon, String text) {
   return Padding(
@@ -10,7 +13,7 @@ Widget customBtn(IconData icon, String text) {
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
     child: Container(
       decoration: const BoxDecoration(
-        color: Color(0xff3D3C3C),
+        color: Colors.transparent,
         borderRadius: BorderRadius.all(
           Radius.circular(radialVal),
         ),
@@ -58,7 +61,7 @@ Widget customBtn_with_modifier(IconData icon, String text, bool switchValue) {
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
     child: Container(
       decoration: const BoxDecoration(
-        color: Color(0xff3D3C3C),
+        color: Colors.transparent,
         borderRadius: BorderRadius.all(
           Radius.circular(radialVal),
         ),

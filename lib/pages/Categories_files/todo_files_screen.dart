@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color themeColor = Color(0xff74D9DF);
+const MaterialColor themeColor = Colors.lightBlue;
 
 class ToDoFilesScreen extends StatelessWidget {
   const ToDoFilesScreen({super.key});
