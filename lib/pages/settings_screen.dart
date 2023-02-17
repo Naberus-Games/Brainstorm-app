@@ -1,7 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/foundation.dart';
-
 import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import 'package:brainstorm/widgets/categories_button.dart';

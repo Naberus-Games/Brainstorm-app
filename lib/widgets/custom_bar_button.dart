@@ -4,14 +4,16 @@ const Color themeColor = Color(0xff74D9DF);
 
 class BarButton extends StatelessWidget {
   final String text;
-  final Function() onPressed;
-  const BarButton({required this.text, required this.onPressed, Key? key})
-      : super(key: key);
+  // final Function() onPressed;
+  const BarButton({required this.text, onPressed, Key? key}) : super(key: key);
+
+//remove this getter when making button do something and uncomment final Function()
+  get onPressed => null;
 
   @override
   Widget build(BuildContext context) {
     const primaryColor = themeColor;
-    const secondaryColor = Color(0xff6D28D9);
+    const secondaryColor = Colors.lightBlue;
     const accentColor = Color(0xffffffff);
 
     const double borderRadius = 15;
@@ -26,7 +28,7 @@ class BarButton extends StatelessWidget {
               elevation: MaterialStateProperty.all(0),
               alignment: Alignment.center,
               padding: MaterialStateProperty.all(const EdgeInsets.only(
-                  right: 75, left: 75, top: 15, bottom: 15)),
+                  right: 175, left: 175, top: 16, bottom: 16)),
               backgroundColor: MaterialStateProperty.all(Colors.transparent),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(

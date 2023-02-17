@@ -42,9 +42,11 @@ class ProfileScreen extends StatelessWidget {
                   CustomEntry(hintText: "Current Password"),
                   CustomEntry(hintText: "New Password"),
                   CustomEntry(hintText: "Confirm Password"),
-                  BarButton(
-                    text: "Update",
-                    onPressed: () {},
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: BarButton(
+                      text: "Update",
+                    ),
                   ),
                   //wont let you put button unless you add action, dont know
                   //how to get around this for now
