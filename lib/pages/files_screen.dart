@@ -3,6 +3,7 @@ import 'package:brainstorm/pages/Categories_files/todo_files_screen.dart';
 import 'package:brainstorm/pages/Categories_files/whiteboard_files_screen.dart';
 import 'package:brainstorm/pages/profile_screen.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
+import 'package:brainstorm/widgets/custom_headings.dart';
 
 import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
@@ -133,41 +134,9 @@ class FilesScreens extends StatelessWidget {
                       textController: TextEditingController(),
                       hintText: 'Search'),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        'Recents',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ],
-                ),
+                const SubHeading(text: "Recents"),
                 const CustomCarousel(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        'Categories',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ],
-                ),
+                const SubHeading(text: "Categories"),
                 GestureDetector(
                   child: customBtn(Icons.crop_original, "Whiteboard"),
                   onTap: () {
@@ -205,23 +174,7 @@ class FilesScreens extends StatelessWidget {
                             builder: (context) => const ScriptsFilesScreen()));
                   },
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        'Storage',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ],
-                ),
+                const SubHeading(text: "Storage"),
                 customBtn(Icons.location_city, "Local/SMB"),
                 customBtn(Icons.cloud, "iCloud"),
                 customBtn(Icons.wb_cloudy, "OneDrive"),
