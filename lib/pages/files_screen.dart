@@ -93,6 +93,8 @@ class FilesScreens extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const SettingsScreen()));
+                            // Navigator.pop(context);
+                            // this line is meant to close the menu after the button is pressed but it is broken
                           },
                         ),
                       ),
