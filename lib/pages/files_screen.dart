@@ -126,11 +126,10 @@ class FilesScreens extends StatelessWidget {
                 ),
               ),
             ],
-            backgroundColor: const Color(0xff292828),
-            shadowColor: Colors.transparent,
           ),
           body: SafeArea(
             child: ListView(
+              // mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -187,10 +186,8 @@ class FilesScreens extends StatelessWidget {
               ],
             ),
           ),
-          backgroundColor: const Color(0xff292828),
           floatingActionButton: FloatingActionButton(
             onPressed: () {},
-            backgroundColor: themeColor,
             child: PopupMenuButton(
               offset: Offset.fromDirection(0, 100),
               shape: RoundedRectangleBorder(
