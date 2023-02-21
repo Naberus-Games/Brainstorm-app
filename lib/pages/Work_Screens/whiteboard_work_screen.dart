@@ -1,10 +1,9 @@
-import 'package:brainstorm/theme.dart';
 import 'package:flutter/material.dart';
 
 const MaterialColor themeColor = Colors.lightBlue;
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class WhiteboardFilesScreen extends StatelessWidget {
+  const WhiteboardFilesScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -18,24 +17,19 @@ class LoginScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
-                        'Login',
+                        'Whiteboard',
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ), //Change
+                            ?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
               ]),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/Files-Screen', (route) => false);
-          },
-          backgroundColor: const BrainstormTheme().primaryColor,
-          child: const Icon(Icons.login),
-        ),
+        backgroundColor: const Color(0xff292828),
       );
 }

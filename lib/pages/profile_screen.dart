@@ -1,7 +1,7 @@
+import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
 import 'package:brainstorm/widgets/entry_box.dart';
-import 'package:brainstorm/widgets/custom_bar_button.dart';
-
+import 'package:brainstorm/theme.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -23,46 +23,37 @@ class ProfileScreen extends StatelessWidget {
               textAlign: TextAlign.right,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
-            backgroundColor: const Color(0xff292828),
-            shadowColor: Colors.transparent,
           ),
           body: SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const <Widget>[
-                  MainHeading(text: "Profile"),
-                  //start profile icon
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 100,
-                        child:
-                            Icon(Icons.person, size: 150.0, color: themeColor)),
-                  ),
-                  //end profile icon
-                  CustomEntry(hintText: "First Name"),
-                  CustomEntry(hintText: "Last Name"),
-                  CustomEntry(hintText: "User Name"),
-                  CustomEntry(hintText: "Email"),
-                  SubHeading(text: "Security"),
-                  CustomEntry(hintText: "Current Password"),
-                  CustomEntry(hintText: "New Password"),
-                  CustomEntry(hintText: "Confirm Password"),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: BarButton(
-                      text: "Update",
-                    ),
-                  ),
-                  //wont let you put button unless you add action, dont know
-                  //how to get around this for now
-                ],
-              ),
+            child: ListView(
+              children: <Widget>[
+                //start profile icon
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 100,
+                      child: Icon(Icons.person,
+                          size: 150.0,
+                          color: const BrainstormTheme().primaryColor)),
+                ),
+                //end profile icon
+                customTextField('First Name', Icons.abc, false, context),
+                customTextField(
+                    'Last Name', Icons.abc_outlined, false, context),
+                customTextField(
+                    'User Name', Icons.person_2_outlined, false, context),
+                customTextField('Email', Icons.email, false, context),
+                const SubHeading(text: "Security"),
+                customTextField(
+                    'Current Password', Icons.password, true, context),
+                customTextField('New Password', Icons.password, true, context),
+                customTextField(
+                    'Confirm Password', Icons.password, true, context),
+                filledUpdateBtn('Update', null, context),
+              ],
             ),
           ),
-          backgroundColor: const Color(0xff292828),
         ),
       );
 }

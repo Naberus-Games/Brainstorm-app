@@ -34,7 +34,7 @@ class SettingsScreen extends StatelessWidget {
                             prefixIcon: Icon(Icons.search))),
                   ),
                   const SubHeading(text: "Appearance"),
-                  customBtn_with_modifier(Icons.dark_mode, "Dark Mode", false),
+                  //customBtnWithModifier(Icons.dark_mode, "Dark Mode", false),
                   const SubHeading(text: "Connections"),
                   customBtn(Icons.location_city, "Local/SMB"),
                   customBtn(Icons.cloud, "iCloud"),
@@ -79,10 +79,10 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                   const SubHeading(text: "About"),
-                  InfoCard("Version 0.00.1 (2023.2.7)"),
-                  InfoCard("Privacy Policy"),
-                  InfoCard("Terms of Use"),
-                  InfoCard("Licences")
+                  infoCard("Version 0.00.1 (2023.2.7)"),
+                  infoCard("Privacy Policy"),
+                  infoCard("Terms of Use"),
+                  infoCard("Licences")
                 ],
               ),
             ],

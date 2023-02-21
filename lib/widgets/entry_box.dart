@@ -1,36 +1,32 @@
-import 'package:brainstorm/widgets/text_input.dart';
 import 'package:flutter/material.dart';
+import '../theme.dart';
+import '../main.dart';
 
-class CustomEntry extends StatelessWidget {
-  final String hintText;
+const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
+const radialVal = 30.0;
 
-  const CustomEntry({super.key, required this.hintText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-      child: TextInput(
-          textController: TextEditingController(), hintText: hintText),
-    );
-  }
+Widget customTextField(
+    String hint, IconData? icon, bool obscureText, BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.only(
+        left: leftVal, right: rightVal, top: 0, bottom: 12),
+    child: Container(
+      decoration: BoxDecoration(
+        color: context.isDarkMode
+            ? const BrainstormTheme().darkAccentColor
+            : const BrainstormTheme().lightAccentColor,
+        borderRadius: BorderRadius.circular(radialVal),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          hintStyle: const TextStyle(fontSize: 17),
+          hintText: hint,
+          prefixIcon: Icon(icon),
+          border: InputBorder.none,
+          contentPadding: const EdgeInsets.all(20),
+        ),
+        obscureText: obscureText,
+      ),
+    ),
+  );
 }
-
-// class CustomPassEntry extends StatelessWidget {
-//   final String hintText;
-
-//   const CustomPassEntry({super.key, required this.hintText});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-//       child: TextInput(
-//           textController: TextEditingController(),
-//           hintText: hintText,
-//           obscureText: true),
-//     );
-//   }
-// }
-
-//added the obscureText field to make it password field but doesnt work :(
