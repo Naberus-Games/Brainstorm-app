@@ -19,23 +19,143 @@ class NotesWorkScreen extends StatelessWidget {
             currentFocus.unfocus();
           }
         },
+        // ignore: sort_child_properties_last
         child: Scaffold(
-          body: const CustomScrollView(
+          body: CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
-                expandedHeight: 150,
                 floating: false,
-                pinned: true,
-                title: Text(
-                  "Files",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
-                centerTitle: false,
-                flexibleSpace: const FlexibleSpaceBar(),
+                pinned: false,
+                automaticallyImplyLeading: false,
+                actions: [
+                  //Popup Buttons
+                  Padding(
+                    padding: const EdgeInsets.all(9.5),
+                    child: PopupMenuButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                      icon: Icon(
+                        Icons.account_circle,
+                        color: const BrainstormTheme().primaryColor,
+                        size: 40,
+                      ),
+                      color: context.isDarkMode
+                          ? const BrainstormTheme().darkAccentColor
+                          : const BrainstormTheme().lightAccentColor,
+                      onSelected: (value) {
+                        switch (value) {
+                          case 1:
+                            Navigator.pushNamed(context, '/Profile-Screen');
+                            break;
+                          case 2:
+                            Navigator.pushNamed(context, '/Settings-Screen');
+                            break;
+                          case 3:
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, '/', (route) => false);
+                            break;
+                        }
+                      },
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+                          value: 1,
+                          child: ListTile(
+                            leading: Icon(
+                              Icons.person,
+                              color: const BrainstormTheme().primaryColor,
+                            ),
+                            title: Text('Profile',
+                                style: Theme.of(context).textTheme.bodyMedium),
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 2,
+                          child: ListTile(
+                            leading: Icon(
+                              Icons.settings,
+                              color: const BrainstormTheme().primaryColor,
+                            ),
+                            title: Text('Setting',
+                                style: Theme.of(context).textTheme.bodyMedium),
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 3,
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.logout,
+                              color: Colors.red,
+                            ),
+                            title: Text(
+                              'Logout',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: Colors.red),
+                            ),
+                          ),
+                        ),
+                      ],
+                      tooltip: 'Profile',
+                    ),
+                  ),
+                ],
               ),
-              SliverToBoxAdapter(
+              SliverAppBar(
+                floating: true,
+                pinned: true,
+                automaticallyImplyLeading: false,
+                flexibleSpace: const FlexibleSpaceBar(
+                  titlePadding: EdgeInsets.fromLTRB(12, 0, 0, 100),
+                  title: Text(
+                    "Files",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  ),
+                  centerTitle: false,
+                ),
+                bottom: PreferredSize(
+                  preferredSize: const Size(0, 90),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: leftVal, right: rightVal, top: 0, bottom: 12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: context.isDarkMode
+                            ? const BrainstormTheme().darkAccentColor
+                            : const BrainstormTheme().lightAccentColor,
+                        borderRadius: BorderRadius.circular(radialVal),
+                      ),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          hintStyle: TextStyle(fontSize: 17),
+                          hintText: 'Search',
+                          prefixIcon: Icon(Icons.search),
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.all(20),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(
                 child: CustomCarousel(),
-              )
+              ),
+              const SliverToBoxAdapter(
+                child: CustomCarousel(),
+              ),
+              const SliverToBoxAdapter(
+                child: CustomCarousel(),
+              ),
+              const SliverToBoxAdapter(
+                child: CustomCarousel(),
+              ),
+              const SliverToBoxAdapter(
+                child: CustomCarousel(),
+              ),
+              const SliverToBoxAdapter(
+                child: CustomCarousel(),
+              ),
             ],
           ),
           floatingActionButton: FloatingActionButton(

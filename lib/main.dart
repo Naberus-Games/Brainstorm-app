@@ -1,4 +1,5 @@
 import 'package:brainstorm/pages/Work_Screens/notes_work_screen.dart';
+import 'package:brainstorm/pages/Work_Screens/whiteboard_work_screen.dart';
 import 'package:brainstorm/pages/files_screen.dart';
 import 'package:brainstorm/pages/Categories_files/notes_files_screen.dart';
 import 'package:brainstorm/pages/Categories_files/todo_files_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/Scripts-Screen': (context) => const ScriptsFilesScreen(),
         '/Profile-Screen': (context) => const ProfileScreen(),
         '/Settings-Screen': (context) => const SettingsScreen(),
+        '/Whiteboard-Work-Screen': (context) => const WhiteboardWorkScreen(),
         '/Notes-Work-Screen': (context) => const NotesWorkScreen(),
       },
     );

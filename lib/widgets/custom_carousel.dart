@@ -1,4 +1,3 @@
-import 'package:brainstorm/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCarousel extends StatefulWidget {
