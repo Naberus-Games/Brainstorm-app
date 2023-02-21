@@ -1,3 +1,4 @@
+import 'package:brainstorm/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCarousel extends StatefulWidget {
@@ -102,7 +103,7 @@ class Customcarousel extends StatelessWidget {
             ),
             Text(
               title,
-              style: const TextStyle(fontSize: 15, color: Colors.white),
+              style: const TextStyle(fontSize: 15),
             ),
           ],
         ),
@@ -121,9 +122,9 @@ class AnimatedPageIndicatorFb1 extends StatelessWidget {
       this.dotWidth = 10,
       this.activeDotWidth = 20,
       this.gradient =
-          const LinearGradient(colors: [Colors.lightBlue, Colors.lightBlue]),
+          const LinearGradient(colors: [Color(0xff74D9DF), Color(0xff74D9DF)]),
       this.activeGradient = const LinearGradient(
-          colors: [Colors.lightBlue, Colors.lightBlueAccent])})
+          colors: [Color(0xff74D9DF), Colors.lightBlueAccent])})
       : super(key: key);
 
   final int

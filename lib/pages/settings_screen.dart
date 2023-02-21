@@ -1,4 +1,3 @@
-import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
@@ -24,11 +23,15 @@ class SettingsScreen extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: SearchInput(
-                        textController: TextEditingController(),
-                        hintText: 'Search'),
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0))),
+                            labelText: "Search",
+                            prefixIcon: Icon(Icons.search))),
                   ),
                   const SubHeading(text: "Appearance"),
                   customBtn_with_modifier(Icons.dark_mode, "Dark Mode", false),

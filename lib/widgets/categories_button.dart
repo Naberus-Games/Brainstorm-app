@@ -11,23 +11,33 @@ Widget customBtn(IconData icon, String text) {
   return Padding(
     padding: const EdgeInsets.only(
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
-    child: Container(
-      decoration: const BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.all(
-          Radius.circular(radialVal),
-        ),
+    child: TextButton.icon(
+      onPressed: () {},
+      icon: Icon(icon),
+      label: Text(
+        text,
+        textScaleFactor: 1.2,
       ),
-      padding: const EdgeInsets.all(10.0),
-      child: Row(
-        children: <Widget>[
-          Icon(icon, color: themeColor),
-          const SizedBox(width: 12.0),
-          Text(text,
-              style: const TextStyle(color: Colors.white),
-              textScaleFactor: 1.2),
-        ],
+      style: const ButtonStyle(alignment: Alignment.centerLeft),
+    ),
+  );
+}
+
+Widget filledRouteBtn(
+    IconData icon, String text, String pageRoute, BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.only(
+        left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
+    child: FilledButton.icon(
+      onPressed: () {
+        Navigator.of(context).pushNamed('/$pageRoute');
+      },
+      icon: Icon(icon),
+      label: Text(
+        text,
+        textScaleFactor: 1.2,
       ),
+      style: const ButtonStyle(alignment: Alignment.centerLeft),
     ),
   );
 }
@@ -46,9 +56,7 @@ Widget InfoCard(String text) {
       padding: const EdgeInsets.all(10.0),
       child: Row(
         children: <Widget>[
-          Text(text,
-              style: const TextStyle(color: Colors.white),
-              textScaleFactor: 1.2),
+          Text(text, textScaleFactor: 1.2),
         ],
       ),
     ),
@@ -73,9 +81,7 @@ Widget customBtn_with_modifier(IconData icon, String text, bool switchValue) {
             child: Icon(icon, color: themeColor),
           ),
           const SizedBox(width: 12.0),
-          Text(text,
-              style: const TextStyle(color: Colors.white),
-              textScaleFactor: 1.2),
+          Text(text, textScaleFactor: 1.2),
           const Spacer(),
           Switch(
             value: switchValue,

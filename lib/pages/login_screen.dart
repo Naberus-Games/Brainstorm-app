@@ -1,4 +1,3 @@
-import 'package:brainstorm/pages/files_screen.dart';
 import 'package:flutter/material.dart';
 
 const MaterialColor themeColor = Colors.lightBlue;
@@ -34,10 +33,8 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: const Color(0xff292828),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const FilesScreens()),
-                (route) => false);
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil('/Files-Screen', (route) => false);
           },
           backgroundColor: themeColor,
           child: const Icon(Icons.login),

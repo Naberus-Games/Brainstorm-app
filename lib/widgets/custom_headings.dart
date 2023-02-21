@@ -12,13 +12,10 @@ class SubHeading extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Text(
-            text,
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.w500),
-          ),
+          child: Text(text,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  )),
         ),
       ],
     );
@@ -42,7 +39,7 @@ class MainHeading extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headlineMedium
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                ?.copyWith(fontWeight: FontWeight.bold),
           ), //Change
         ),
       ],

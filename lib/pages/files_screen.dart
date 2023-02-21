@@ -1,18 +1,16 @@
-import 'package:brainstorm/pages/Categories_files/notes_files_screen.dart';
-import 'package:brainstorm/pages/Categories_files/todo_files_screen.dart';
-import 'package:brainstorm/pages/Categories_files/whiteboard_files_screen.dart';
-import 'package:brainstorm/pages/profile_screen.dart';
+import 'package:brainstorm/main.dart';
+import 'package:brainstorm/theme.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
-
-import '../widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_carousel.dart';
-import 'Categories_files/scripts_files_screen.dart';
 import 'login_screen.dart';
 import 'settings_screen.dart';
 
 const MaterialColor themeColor = Colors.lightBlue;
+
+const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
+const radialVal = 30.0;
 
 class FilesScreens extends StatelessWidget {
   const FilesScreens({super.key});
@@ -31,10 +29,7 @@ class FilesScreens extends StatelessWidget {
             title: const Text(
               "Files",
               textAlign: TextAlign.right,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Colors.white),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
             actions: [
               Padding(
@@ -50,7 +45,9 @@ class FilesScreens extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16.0)),
                     icon: const Icon(Icons.person, color: themeColor),
-                    color: const Color(0xff3D3C3C),
+                    color: context.isDarkMode
+                        ? const BrainstormTheme().darkAccentColor
+                        : const BrainstormTheme().lightAccentColor,
                     itemBuilder: (context) => [
                       PopupMenuItem(
                         child: ListTile(
@@ -58,19 +55,14 @@ class FilesScreens extends StatelessWidget {
                             Icons.person,
                             color: themeColor,
                           ),
-                          title: Text(
-                            'Profile',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(color: Colors.white),
-                          ),
+                          title: Text('Profile',
+                              style: Theme.of(context).textTheme.bodyMedium),
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ProfileScreen()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             const ProfileScreen()));
                           },
                         ),
                       ),
@@ -80,21 +72,14 @@ class FilesScreens extends StatelessWidget {
                             Icons.settings,
                             color: themeColor,
                           ),
-                          title: Text(
-                            'Setting',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(color: Colors.white),
-                          ),
+                          title: Text('Setting',
+                              style: Theme.of(context).textTheme.bodyMedium),
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const SettingsScreen()));
-                            // Navigator.pop(context);
-                            // this line is meant to close the menu after the button is pressed but it is broken
                           },
                         ),
                       ),
@@ -126,63 +111,50 @@ class FilesScreens extends StatelessWidget {
                 ),
               ),
             ],
+            bottom: PreferredSize(
+              preferredSize: const Size(0, 90),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: leftVal, right: rightVal, top: 0, bottom: 12),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: context.isDarkMode
+                        ? const BrainstormTheme().darkAccentColor
+                        : const BrainstormTheme().lightAccentColor,
+                    borderRadius: BorderRadius.circular(radialVal),
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 17),
+                      hintText: 'Search',
+                      prefixIcon: Icon(Icons.search),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(20),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           body: SafeArea(
             child: ListView(
-              // mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SearchInput(
-                      textController: TextEditingController(),
-                      hintText: 'Search'),
-                ),
                 const SubHeading(text: "Recents"),
                 const CustomCarousel(),
                 const SubHeading(text: "Categories"),
-                GestureDetector(
-                  child: customBtn(Icons.crop_original, "Whiteboard"),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const WhiteboardFilesScreen()));
-                  },
-                ),
-                GestureDetector(
-                  child: customBtn(Icons.notes, "Notes"),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NotesFilesScreen()));
-                  },
-                ),
-                GestureDetector(
-                  child: customBtn(Icons.check_box, "Todo"),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ToDoFilesScreen()));
-                  },
-                ),
-                GestureDetector(
-                  child: customBtn(Icons.edit_document, "Scripts"),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ScriptsFilesScreen()));
-                  },
-                ),
+                filledRouteBtn(Icons.crop_original, "Whiteboard",
+                    "Whiteboard-Screen", context),
+                filledRouteBtn(Icons.notes, "Notes", "Notes-Screen", context),
+                filledRouteBtn(
+                    Icons.check_box, "To Do", "To-Do-Screen", context),
+                filledRouteBtn(
+                    Icons.edit_document, "Scripts", "Scripts-Screen", context),
                 const SubHeading(text: "Storage"),
-                customBtn(Icons.location_city, "Local/SMB"),
-                customBtn(Icons.cloud, "iCloud"),
-                customBtn(Icons.wb_cloudy, "OneDrive"),
-                customBtn(Icons.add_to_drive_outlined, "Google Drive"),
-                customBtn(Icons.flash_on, "Brainstorm Cloud"),
+                // filledRouteBtn(Icons.location_city, "Local/SMB", ,context),
+                // filledRouteBtn(Icons.cloud, "iCloud", ,context),
+                // filledRouteBtn(Icons.wb_cloudy, "OneDrive",,context),
+                // filledRouteBtn(Icons.add_to_drive_outlined, "Google Drive",,context),
+                // filledRouteBtn(Icons.flash_on, "Brainstorm Cloud",,context),
               ],
             ),
           ),
@@ -196,7 +168,9 @@ class FilesScreens extends StatelessWidget {
                 Icons.add,
                 color: Colors.white,
               ),
-              color: const Color(0xff3D3C3C),
+              color: context.isDarkMode
+                  ? const BrainstormTheme().darkAccentColor
+                  : const BrainstormTheme().lightAccentColor,
               itemBuilder: (context) => [
                 PopupMenuItem(
                   child: ListTile(
@@ -204,13 +178,8 @@ class FilesScreens extends StatelessWidget {
                       Icons.crop_original,
                       color: themeColor,
                     ),
-                    title: Text(
-                      'Whiteboard',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.white),
-                    ),
+                    title: Text('Whiteboard',
+                        style: Theme.of(context).textTheme.bodyMedium),
                   ),
                 ),
                 PopupMenuItem(
@@ -219,13 +188,8 @@ class FilesScreens extends StatelessWidget {
                       Icons.notes,
                       color: themeColor,
                     ),
-                    title: Text(
-                      'Notes',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.white),
-                    ),
+                    title: Text('Notes',
+                        style: Theme.of(context).textTheme.bodyMedium),
                   ),
                 ),
                 PopupMenuItem(
@@ -236,10 +200,7 @@ class FilesScreens extends StatelessWidget {
                     ),
                     title: Text(
                       'Todo',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.white),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 ),
@@ -249,13 +210,8 @@ class FilesScreens extends StatelessWidget {
                       Icons.edit_document,
                       color: themeColor,
                     ),
-                    title: Text(
-                      'Scripts',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.white),
-                    ),
+                    title: Text('Scripts',
+                        style: Theme.of(context).textTheme.bodyMedium),
                   ),
                 ),
               ],
