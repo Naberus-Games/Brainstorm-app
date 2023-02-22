@@ -401,18 +401,18 @@ class FilesScreens extends StatelessWidget {
                       "Scripts-Screen", context)),
               const SliverToBoxAdapter(child: SubHeading(text: "Storage")),
               SliverToBoxAdapter(
-                child: filledRouteBtn(Icons.crop_original, "Whiteboard",
-                    "Whiteboard-Screen", context),
+                child: filledRouteBtn(Icons.location_city, "Local/SMB",
+                    "Local-Files-Screen", context),
               ),
               SliverToBoxAdapter(
                   child: filledRouteBtn(
-                      Icons.notes, "Notes", "Notes-Screen", context)),
+                      Icons.cloud, "iCloud", "iCloud-Files-Screen", context)),
               SliverToBoxAdapter(
-                  child: filledRouteBtn(
-                      Icons.check_box, "To Do", "To-Do-Screen", context)),
+                  child: filledRouteBtn(Icons.wb_cloudy, "OneDrive",
+                      "Onedrive-Files-Sc", context)),
               SliverToBoxAdapter(
-                  child: filledRouteBtn(Icons.edit_document, "Scripts",
-                      "Scripts-Screen", context)),
+                  child: filledRouteBtn(Icons.flash_on, "Brainstorm Cloud",
+                      "Brainstorm-Files-Screen", context)),
               const SliverToBoxAdapter(
                   child: Padding(padding: EdgeInsets.all(15), child: Text(''))),
             ],
@@ -436,10 +436,10 @@ class FilesScreens extends StatelessWidget {
                     Navigator.pushNamed(context, '/Whiteboard-Work-Screen');
                     break;
                   case 2:
-                    Navigator.pushNamed(context, '/Settings-Screen');
+                    Navigator.pushNamed(context, '/Notes-Work-Screen');
                     break;
                   case 3:
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/To-Do-Work-Screen');
                     break;
                   case 4:
                     Navigator.pushNamed(context, '/');

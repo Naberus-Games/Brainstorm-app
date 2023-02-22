@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const MaterialColor themeColor = Colors.lightBlue;
 
-class ToDoFilesScreen extends StatelessWidget {
-  const ToDoFilesScreen({super.key});
+class ToDoWorkScreen extends StatelessWidget {
+  const ToDoWorkScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -21,15 +21,12 @@ class ToDoFilesScreen extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
-                            ?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                            ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
               ]),
         ),
-        backgroundColor: const Color(0xff292828),
       );
 }

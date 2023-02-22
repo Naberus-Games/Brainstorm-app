@@ -7,7 +7,7 @@ class BrainstormTheme {
     this.darkBackgroundColor = const Color(0xff292828),
     this.lightBackgroundColor = const Color(0xFFFCFCFC),
     this.darkAccentColor = const Color(0xff3D3C3C),
-    this.lightAccentColor = const Color(0xFFDCDBDB),
+    this.lightAccentColor = const Color(0xFFF0F0F0),
   });
 
   final Color primaryColor,
