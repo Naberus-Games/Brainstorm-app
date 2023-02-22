@@ -12,9 +12,14 @@ const maxItems = SnackBar(
 
 final List<String> todoList = ["fisrt", "next", "another one", "again", "cool"];
 
-class ToDoFilesScreen extends StatelessWidget {
+class ToDoFilesScreen extends StatefulWidget {
   const ToDoFilesScreen({super.key});
 
+  @override
+  State<ToDoFilesScreen> createState() => _ToDoListState();
+}
+
+class _ToDoListState extends State<ToDoFilesScreen> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () {
@@ -102,9 +107,9 @@ class ToDoFilesScreen extends StatelessWidget {
               Icons.add,
               color: const BrainstormTheme().lightAccentColor,
             ),
-            onPressed: () {
+            onPressed: () async {
               //
-              Navigator.pushNamed(context, '/To-Do-Work-Screen');
+              await Navigator.pushNamed(context, '/To-Do-Work-Screen');
             },
           ),
         ),

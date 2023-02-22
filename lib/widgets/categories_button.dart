@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
 const radialVal = 25.0;
 
-Widget customBtn(IconData icon, String text) {
+Widget customBtn(IconData icon, String text, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
     child: TextButton.icon(
       onPressed: () {
         todoList.add(text);
+        Navigator.pop(context);
       },
       icon: Icon(icon),
       label: Text(

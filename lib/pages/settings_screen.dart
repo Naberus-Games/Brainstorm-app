@@ -36,14 +36,16 @@ class SettingsScreen extends StatelessWidget {
                   const SubHeading(text: "Appearance"),
                   //customBtnWithModifier(Icons.dark_mode, "Dark Mode", false),
                   const SubHeading(text: "Connections"),
-                  customBtn(Icons.location_city, "Local/SMB"),
-                  customBtn(Icons.cloud, "iCloud"),
-                  customBtn(Icons.wb_cloudy, "OneDrive"),
-                  customBtn(Icons.add_to_drive_outlined, "Google Drive"),
-                  customBtn(Icons.flash_on, "Brainstorm Cloud"),
+                  customBtn(Icons.location_city, "Local/SMB", context),
+                  customBtn(Icons.cloud, "iCloud", context),
+                  customBtn(Icons.wb_cloudy, "OneDrive", context),
+                  customBtn(
+                      Icons.add_to_drive_outlined, "Google Drive", context),
+                  customBtn(Icons.flash_on, "Brainstorm Cloud", context),
                   const SubHeading(text: "Features"),
                   GestureDetector(
-                    child: customBtn(Icons.crop_original, "Whiteboard"),
+                    child:
+                        customBtn(Icons.crop_original, "Whiteboard", context),
                     onTap: () {
                       // Navigator.push(
                       // context,
@@ -52,7 +54,7 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                   GestureDetector(
-                    child: customBtn(Icons.notes, "Notes"),
+                    child: customBtn(Icons.notes, "Notes", context),
                     onTap: () {
                       //   Navigator.push(
                       //       context,
@@ -61,7 +63,7 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                   GestureDetector(
-                    child: customBtn(Icons.check_box, "Todo"),
+                    child: customBtn(Icons.check_box, "Todo", context),
                     onTap: () {
                       // Navigator.push(
                       //     context,
@@ -70,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                   GestureDetector(
-                    child: customBtn(Icons.edit_document, "Scripts"),
+                    child: customBtn(Icons.edit_document, "Scripts", context),
                     onTap: () {
                       // Navigator.push(
                       //     context,
