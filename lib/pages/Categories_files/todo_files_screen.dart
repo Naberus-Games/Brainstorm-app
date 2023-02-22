@@ -2,7 +2,6 @@ import 'package:brainstorm/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../theme.dart';
-import '../../widgets/categories_button.dart';
 import '../../widgets/custom_headings.dart';
 
 const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
