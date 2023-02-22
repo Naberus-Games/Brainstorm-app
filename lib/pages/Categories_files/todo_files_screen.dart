@@ -1,4 +1,5 @@
 import 'package:brainstorm/main.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../theme.dart';
 import '../../widgets/categories_button.dart';
@@ -91,6 +92,11 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                   ),
                 ),
               ),
+              CupertinoSliverRefreshControl(
+                onRefresh: () async {
+                  await Future.delayed(const Duration(seconds: 2));
+                },
+              ),
               SliverToBoxAdapter(
                 child: filledUpdateBtn('Delete Index', null, context),
               ),
@@ -109,7 +115,10 @@ class _ToDoListState extends State<ToDoFilesScreen> {
             ),
             onPressed: () async {
               //
-              await Navigator.pushNamed(context, '/To-Do-Work-Screen');
+              await Navigator.pushNamed(context, '/To-Do-Work-Screen')
+                  .then((_) {
+                setState(() {});
+              });
             },
           ),
         ),
