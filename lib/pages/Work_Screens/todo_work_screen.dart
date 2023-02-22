@@ -6,7 +6,6 @@ import '../../widgets/entry_box.dart';
 
 class ToDoWorkScreen extends StatelessWidget {
   const ToDoWorkScreen({super.key});
-
   @override
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
