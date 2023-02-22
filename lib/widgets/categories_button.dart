@@ -11,12 +11,18 @@ Widget toDoAddBtn(IconData icon, String text, BuildContext context) {
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
     child: TextButton.icon(
       onPressed: () {
-        if (todoList.length < 15) {
-          todoList.add(text);
-          Navigator.pop(context);
-        } else {
+        if (todoList.contains(text)) {
           ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('Reached limit.')));
+              .showSnackBar(const SnackBar(content: Text('Already added.')));
+        } else {
+          if (todoList.length < 15) {
+            todoList.add(text);
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('$text has been successfully added.')));
+          } else {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Reached limit.')));
+          }
         }
       },
       icon: Icon(icon),

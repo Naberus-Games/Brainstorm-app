@@ -38,11 +38,22 @@ class ToDoWorkScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(
                     left: leftVal, right: rightVal, top: 0, bottom: 12),
-                child: TextField(
-                  controller: _indexController,
-                  decoration: const InputDecoration(
-                    hintText: "Enter your item to add",
-                    prefixIcon: Icon(Icons.shopping_bag),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: context.isDarkMode
+                        ? const BrainstormTheme().darkAccentColor
+                        : const BrainstormTheme().lightAccentColor,
+                    borderRadius: BorderRadius.circular(radialVal),
+                  ),
+                  child: TextField(
+                    controller: _indexController,
+                    decoration: const InputDecoration(
+                      hintStyle: TextStyle(fontSize: 17),
+                      hintText: 'Enter your item to add',
+                      prefixIcon: Icon(Icons.local_grocery_store),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(20),
+                    ),
                   ),
                 ),
               ),
@@ -54,8 +65,20 @@ class ToDoWorkScreen extends StatelessWidget {
                     bottom: bottomVal),
                 child: TextButton.icon(
                   onPressed: () {
-                    todoList.add(_indexController.text);
-                    Navigator.pop(context);
+                    if (todoList.contains(_indexController.text)) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Already added.')));
+                    } else {
+                      if (todoList.length < 15) {
+                        todoList.add(_indexController.text);
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                '${_indexController.text} has been successfully added.')));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Reached limit.')));
+                      }
+                    }
                   },
                   icon: const Icon(Icons.add),
                   label: const Text(
@@ -67,18 +90,10 @@ class ToDoWorkScreen extends StatelessWidget {
               ),
               const SubHeading(
                   text: "Click items below to add\na frequent item"),
-              filledUpdateBtn('Show my list now', null, context),
-              customTextField(
-                  "Enter your item to add", Icons.shopping_bag, false, context),
-              toDoAddBtn(Icons.add, "Add Your Item", context),
-              const SubHeading(
-                  text: "Click items below to add\na frequent item"),
               toDoAddBtn(Icons.apple, "Apple", context),
               toDoAddBtn(Icons.local_drink, "Milk", context),
               toDoAddBtn(Icons.rectangle, "Bread", context),
-              toDoAddBtn(Icons.smartphone, "Phone Case", context),
-              toDoAddBtn(Icons.mouse, "Mouse", context),
-              filledUpdateBtn('Update', null, context),
+              filledUpdateBtn('Show my list now', null, context),
             ],
           ),
         ),
