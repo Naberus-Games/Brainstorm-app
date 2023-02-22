@@ -36,50 +36,50 @@ class SettingsScreen extends StatelessWidget {
                   const SubHeading(text: "Appearance"),
                   //customBtnWithModifier(Icons.dark_mode, "Dark Mode", false),
                   const SubHeading(text: "Connections"),
-                  customBtn(Icons.location_city, "Local/SMB", context),
-                  customBtn(Icons.cloud, "iCloud", context),
-                  customBtn(Icons.wb_cloudy, "OneDrive", context),
-                  customBtn(
-                      Icons.add_to_drive_outlined, "Google Drive", context),
-                  customBtn(Icons.flash_on, "Brainstorm Cloud", context),
+                  // customBtn(Icons.location_city, "Local/SMB", context),
+                  // customBtn(Icons.cloud, "iCloud", context),
+                  // customBtn(Icons.wb_cloudy, "OneDrive", context),
+                  // customBtn(
+                  //     Icons.add_to_drive_outlined, "Google Drive", context),
+                  // customBtn(Icons.flash_on, "Brainstorm Cloud", context),
                   const SubHeading(text: "Features"),
-                  GestureDetector(
-                    child:
-                        customBtn(Icons.crop_original, "Whiteboard", context),
-                    onTap: () {
-                      // Navigator.push(
-                      // context,
-                      // MaterialPageRoute(
-                      // builder: (context) => const WhiteboardFilesScreen()));
-                    },
-                  ),
-                  GestureDetector(
-                    child: customBtn(Icons.notes, "Notes", context),
-                    onTap: () {
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => const NotesFilesScreen()));
-                    },
-                  ),
-                  GestureDetector(
-                    child: customBtn(Icons.check_box, "Todo", context),
-                    onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const ToDoFilesScreen()));
-                    },
-                  ),
-                  GestureDetector(
-                    child: customBtn(Icons.edit_document, "Scripts", context),
-                    onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const ScriptsFilesScreen()));
-                    },
-                  ),
+                  // GestureDetector(
+                  //   child:
+                  //       // customBtn(Icons.crop_original, "Whiteboard", context),
+                  //   onTap: () {
+                  //     // Navigator.push(
+                  //     // context,
+                  //     // MaterialPageRoute(
+                  //     // builder: (context) => const WhiteboardFilesScreen()));
+                  //   },
+                  // ),
+                  // GestureDetector(
+                  //   child: customBtn(Icons.notes, "Notes", context),
+                  //   onTap: () {
+                  //     //   Navigator.push(
+                  //     //       context,
+                  //     //       MaterialPageRoute(
+                  //     //           builder: (context) => const NotesFilesScreen()));
+                  //   },
+                  // ),
+                  // GestureDetector(
+                  //   child: customBtn(Icons.check_box, "Todo", context),
+                  //   onTap: () {
+                  //     // Navigator.push(
+                  //     //     context,
+                  //     //     MaterialPageRoute(
+                  //     //         builder: (context) => const ToDoFilesScreen()));
+                  //   },
+                  // ),
+                  // GestureDetector(
+                  //   child: customBtn(Icons.edit_document, "Scripts", context),
+                  //   onTap: () {
+                  //     // Navigator.push(
+                  //     //     context,
+                  //     //     MaterialPageRoute(
+                  //     //         builder: (context) => const ScriptsFilesScreen()));
+                  //   },
+                  // ),
                   const SubHeading(text: "About"),
                   infoCard("Version 0.00.1 (2023.2.7)"),
                   infoCard("Privacy Policy"),
