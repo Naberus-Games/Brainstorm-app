@@ -1,3 +1,4 @@
+import 'package:brainstorm/pages/Categories_files/todo_files_screen.dart';
 import 'package:brainstorm/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,9 @@ Widget customBtn(IconData icon, String text) {
     padding: const EdgeInsets.only(
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
     child: TextButton.icon(
-      onPressed: () {},
+      onPressed: () {
+        todoList.add(text);
+      },
       icon: Icon(icon),
       label: Text(
         text,

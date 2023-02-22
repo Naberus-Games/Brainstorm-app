@@ -10,8 +10,7 @@ const maxItems = SnackBar(
   content: Text('Max Items Reached'),
 );
 
-List<String> todoList = ["fisrt", "next", "another one", "again"];
-const int listAmount = 1;
+final List<String> todoList = ["fisrt", "next", "another one", "again", "cool"];
 
 class ToDoFilesScreen extends StatelessWidget {
   const ToDoFilesScreen({super.key});
@@ -93,15 +92,7 @@ class ToDoFilesScreen extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: SubHeading(text: '               My Shopping List'),
               ),
-              SliverList(
-                  delegate: SliverChildListDelegate([
-                Column(
-                  children: [
-                    for (int i = 0; i < todoList.length; i++)
-                      Text('${i + 1}. ${todoList[i]}')
-                  ],
-                )
-              ])),
+              _getToDoListSliver(todoList, context),
               const SliverToBoxAdapter(
                   child: Padding(padding: EdgeInsets.all(15), child: Text(''))),
             ],
@@ -112,9 +103,28 @@ class ToDoFilesScreen extends StatelessWidget {
               color: const BrainstormTheme().lightAccentColor,
             ),
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(maxItems);
+              //
+              Navigator.pushNamed(context, '/To-Do-Work-Screen');
             },
           ),
         ),
       );
+}
+
+SliverList _getToDoListSliver(List list, BuildContext context) {
+  return SliverList(
+    delegate: SliverChildBuilderDelegate(
+      (BuildContext context, int index) {
+        return buildRow('${index + 1}. ${list[index]}');
+      },
+      childCount: list.length,
+    ),
+  );
+}
+
+buildRow(String title) {
+  return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Text(title,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)));
 }

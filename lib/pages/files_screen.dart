@@ -409,7 +409,11 @@ class FilesScreens extends StatelessWidget {
                       Icons.cloud, "iCloud", "iCloud-Files-Screen", context)),
               SliverToBoxAdapter(
                   child: filledRouteBtn(Icons.wb_cloudy, "OneDrive",
-                      "Onedrive-Files-Sc", context)),
+                      "Onedrive-Files-Screen", context)),
+              SliverToBoxAdapter(
+                child: filledRouteBtn(Icons.add_to_drive_outlined,
+                    "Google Drive", "Google-Drive-File-Screen", context),
+              ),
               SliverToBoxAdapter(
                   child: filledRouteBtn(Icons.flash_on, "Brainstorm Cloud",
                       "Brainstorm-Files-Screen", context)),
@@ -477,7 +481,7 @@ class FilesScreens extends StatelessWidget {
                       color: const BrainstormTheme().primaryColor,
                     ),
                     title: Text(
-                      'Todo',
+                      'To Do',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
