@@ -4,6 +4,7 @@ import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
 
 import '../../theme.dart';
+import '../../widgets/entry_box.dart';
 import '../Categories_files/todo_files_screen.dart';
 
 const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
@@ -12,7 +13,6 @@ TextEditingController _indexController = TextEditingController();
 
 class ToDoWorkScreen extends StatelessWidget {
   const ToDoWorkScreen({super.key});
-
   @override
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
@@ -67,10 +67,18 @@ class ToDoWorkScreen extends StatelessWidget {
               ),
               const SubHeading(
                   text: "Click items below to add\na frequent item"),
-              customBtn(Icons.apple, "Apple", context),
-              customBtn(Icons.local_drink, "Milk", context),
-              customBtn(Icons.rectangle, "Bread", context),
               filledUpdateBtn('Show my list now', null, context),
+              customTextField(
+                  "Enter your item to add", Icons.shopping_bag, false, context),
+              toDoAddBtn(Icons.add, "Add Your Item", context),
+              const SubHeading(
+                  text: "Click items below to add\na frequent item"),
+              toDoAddBtn(Icons.apple, "Apple", context),
+              toDoAddBtn(Icons.local_drink, "Milk", context),
+              toDoAddBtn(Icons.rectangle, "Bread", context),
+              toDoAddBtn(Icons.smartphone, "Phone Case", context),
+              toDoAddBtn(Icons.mouse, "Mouse", context),
+              filledUpdateBtn('Update', null, context),
             ],
           ),
         ),
