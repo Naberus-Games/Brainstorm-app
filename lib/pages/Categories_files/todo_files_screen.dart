@@ -20,6 +20,14 @@ class ToDoFilesScreen extends StatefulWidget {
 }
 
 class _ToDoListState extends State<ToDoFilesScreen> {
+  late TextEditingController _indexController;
+
+  @override
+  void initState() {
+    _indexController = TextEditingController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () {
@@ -45,7 +53,11 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                       radius: 30,
                       backgroundColor: Colors.white,
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              todoList.clear();
+                            });
+                          },
                           icon: Icon(
                             Icons.delete,
                             color: const BrainstormTheme().primaryColor,
@@ -78,8 +90,9 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                             : const BrainstormTheme().lightAccentColor,
                         borderRadius: BorderRadius.circular(radialVal),
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _indexController,
+                        decoration: const InputDecoration(
                           hintStyle: TextStyle(fontSize: 17),
                           hintText: 'Enter index to delete',
                           prefixIcon: Icon(Icons.local_grocery_store),
@@ -92,7 +105,42 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: filledUpdateBtn('Delete Index', null, context),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: leftVal,
+                      right: rightVal,
+                      top: topVal,
+                      bottom: bottomVal),
+                  child: FilledButton(
+                    onPressed: () {
+                      //delete the item from the list at the specified index
+                      if (_indexController.text != '') {
+                        setState(() {
+                          int index = int.parse(_indexController.text);
+                          if (index > 0 && index <= todoList.length) {
+                            todoList.removeAt(index - 1);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Index out of range')));
+                          }
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Please enter an index')));
+                      }
+                    },
+                    style: ButtonStyle(
+                        alignment: Alignment.center,
+                        backgroundColor: MaterialStatePropertyAll<Color>(
+                            const BrainstormTheme().primaryColor)),
+                    child: const Text(
+                      "Delete Index",
+                      textScaleFactor: 1.2,
+                    ),
+                  ),
+                ),
               ),
               const SliverToBoxAdapter(
                 child: SubHeading(text: '               My Shopping List'),

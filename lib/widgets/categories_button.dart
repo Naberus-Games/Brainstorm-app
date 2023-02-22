@@ -48,7 +48,9 @@ Widget filledUpdateBtn(String text, String? action, BuildContext context) {
     padding: const EdgeInsets.only(
         left: leftVal, right: rightVal, top: topVal, bottom: bottomVal),
     child: FilledButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pop(context);
+      },
       style: ButtonStyle(
           alignment: Alignment.center,
           backgroundColor: MaterialStatePropertyAll<Color>(
