@@ -1,45 +1,31 @@
 import 'package:flutter/material.dart';
 
-class SubHeading extends StatelessWidget {
+class CustomHeading extends StatelessWidget {
   final String text;
+  final MainAxisAlignment alignment;
+  final FontWeight fontWeight;
+  final double padding;
 
-  const SubHeading({super.key, required this.text});
-
+  const CustomHeading({
+    super.key,
+    required this.text,
+    this.alignment = MainAxisAlignment.start,
+    this.fontWeight = FontWeight.w500,
+    this.padding = 12,
+  });
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: alignment,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(text,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  )),
-        ),
-      ],
-    );
-  }
-}
-
-class MainHeading extends StatelessWidget {
-  final String text;
-
-  const MainHeading({super.key, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(padding),
           child: Text(
             text,
             style: Theme.of(context)
                 .textTheme
                 .headlineMedium
-                ?.copyWith(fontWeight: FontWeight.bold),
+                ?.copyWith(fontWeight: fontWeight),
           ), //Change
         ),
       ],

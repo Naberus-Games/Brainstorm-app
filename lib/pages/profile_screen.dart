@@ -44,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
                 customTextField(
                     'User Name', Icons.person_2_outlined, false, context),
                 customTextField('Email', Icons.email, false, context),
-                const SubHeading(text: "Security"),
+                const CustomHeading(text: "Security"),
                 customTextField(
                     'Current Password', Icons.password, true, context),
                 customTextField('New Password', Icons.password, true, context),

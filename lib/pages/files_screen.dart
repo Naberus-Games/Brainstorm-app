@@ -378,13 +378,13 @@ class FilesScreens extends StatelessWidget {
                 ),
               ),
               const SliverToBoxAdapter(
-                child: SubHeading(text: 'Recents'),
+                child: CustomHeading(text: 'Recents'),
               ),
               const SliverToBoxAdapter(
                 child: CustomCarousel(),
               ),
               const SliverToBoxAdapter(
-                child: SubHeading(text: 'Categories'),
+                child: CustomHeading(text: 'Categories'),
               ),
               SliverToBoxAdapter(
                 child: filledRouteBtn(Icons.crop_original, "Whiteboard",
@@ -399,7 +399,9 @@ class FilesScreens extends StatelessWidget {
               SliverToBoxAdapter(
                   child: filledRouteBtn(Icons.edit_document, "Scripts",
                       "Scripts-Screen", context)),
-              const SliverToBoxAdapter(child: SubHeading(text: "Storage")),
+              const SliverToBoxAdapter(
+                child: CustomHeading(text: 'Storage'),
+              ),
               SliverToBoxAdapter(
                 child: filledRouteBtn(Icons.location_city, "Local/SMB",
                     "Local-Files-Screen", context),

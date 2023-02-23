@@ -1,5 +1,4 @@
 import 'package:brainstorm/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../theme.dart';
 import '../../widgets/custom_headings.dart';
@@ -40,6 +39,7 @@ class _ToDoListState extends State<ToDoFilesScreen> {
     super.initState();
   }
 
+//TODO Turn app bars into one widget for easy input.
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () {
@@ -116,11 +116,6 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                   ),
                 ),
               ),
-              CupertinoSliverRefreshControl(
-                onRefresh: () async {
-                  await Future.delayed(const Duration(seconds: 2));
-                },
-              ),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -160,7 +155,10 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                 ),
               ),
               const SliverToBoxAdapter(
-                child: SubHeading(text: '               My Shopping List'),
+                child: CustomHeading(
+                    text: 'My Shopping List',
+                    alignment: MainAxisAlignment.center,
+                    fontWeight: FontWeight.bold),
               ),
               _getToDoListSliver(todoList, context),
               const SliverToBoxAdapter(
@@ -188,14 +186,14 @@ SliverList _getToDoListSliver(List list, BuildContext context) {
   return SliverList(
     delegate: SliverChildBuilderDelegate(
       (BuildContext context, int index) {
-        return buildRow('${index + 1}. ${list[index]}');
+        return _buildRow('${index + 1}. ${list[index]}');
       },
       childCount: list.length,
     ),
   );
 }
 
-buildRow(String title) {
+_buildRow(String title) {
   return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Text(title,

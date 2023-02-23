@@ -4,6 +4,7 @@ import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
 
 import '../../theme.dart';
+// ignore: unused_import
 import '../../widgets/entry_box.dart';
 import '../Categories_files/todo_files_screen.dart';
 
@@ -34,7 +35,11 @@ class ToDoWorkScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const MainHeading(text: '       CIS443 Shopping List'),
+              const CustomHeading(
+                text: 'CIS443 Shopping List',
+                alignment: MainAxisAlignment.center,
+                fontWeight: FontWeight.bold,
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                     left: leftVal, right: rightVal, top: 0, bottom: 12),
@@ -88,8 +93,8 @@ class ToDoWorkScreen extends StatelessWidget {
                   style: const ButtonStyle(alignment: Alignment.centerLeft),
                 ),
               ),
-              const SubHeading(
-                  text: "Click items below to add\na frequent item"),
+              const CustomHeading(
+                  text: 'Click items below to add\na frequent item'),
               toDoAddBtn(Icons.apple, "Apple", context),
               toDoAddBtn(Icons.local_drink, "Milk", context),
               toDoAddBtn(Icons.rectangle, "Bread", context),

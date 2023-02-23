@@ -33,16 +33,16 @@ class SettingsScreen extends StatelessWidget {
                             labelText: "Search",
                             prefixIcon: Icon(Icons.search))),
                   ),
-                  const SubHeading(text: "Appearance"),
+                  const CustomHeading(text: "Appearance"),
                   //customBtnWithModifier(Icons.dark_mode, "Dark Mode", false),
-                  const SubHeading(text: "Connections"),
+                  const CustomHeading(text: "Connections"),
                   // customBtn(Icons.location_city, "Local/SMB", context),
                   // customBtn(Icons.cloud, "iCloud", context),
                   // customBtn(Icons.wb_cloudy, "OneDrive", context),
                   // customBtn(
                   //     Icons.add_to_drive_outlined, "Google Drive", context),
                   // customBtn(Icons.flash_on, "Brainstorm Cloud", context),
-                  const SubHeading(text: "Features"),
+                  const CustomHeading(text: "Features"),
                   // GestureDetector(
                   //   child:
                   //       // customBtn(Icons.crop_original, "Whiteboard", context),
@@ -80,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
                   //     //         builder: (context) => const ScriptsFilesScreen()));
                   //   },
                   // ),
-                  const SubHeading(text: "About"),
+                  const CustomHeading(text: "About"),
                   infoCard("Version 0.00.1 (2023.2.7)"),
                   infoCard("Privacy Policy"),
                   infoCard("Terms of Use"),
