@@ -29,4 +29,27 @@ class MyApp extends StatelessWidget {
       darkTheme: brainstormTheme.darkToThemeData(),
       themeMode: ThemeMode.system,
       initialRoute: '/',
+      routes: {
+        '/': (context) => const LoginScreen(),
+        '/Files-Screen': (context) => const FilesScreens(),
+        '/Whiteboard-Screen': (context) => const WhiteboardFilesScreen(),
+        '/Notes-Screen': (context) => const NotesFilesScreen(),
+        '/To-Do-Screen': (context) => const ToDoFilesScreen(),
+        '/Scripts-Screen': (context) => const ScriptsFilesScreen(),
+        '/Profile-Screen': (context) => const ProfileScreen(),
+        '/Settings-Screen': (context) => const SettingsScreen(),
+        '/Whiteboard-Work-Screen': (context) => const WhiteboardWorkScreen(),
+        '/Notes-Work-Screen': (context) => const NotesWorkScreen(),
+        '/To-Do-Work-Screen': (context) => const ToDoWorkScreen(),
+      },
+    );
+  }
+}
+
+extension DarkMode on BuildContext {
+  /// is dark mode currently enabled?
+  bool get isDarkMode {
     final brightness = MediaQuery.of(this).platformBrightness;
+    return brightness == Brightness.dark;
+  }
+}
