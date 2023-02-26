@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../models/custom_carousel_data.dart';
 
 class CustomCarousel extends StatefulWidget {
   const CustomCarousel({Key? key}) : super(key: key);
@@ -15,7 +16,8 @@ class _CustomCarouselState extends State<CustomCarousel> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: _currentPage);
+    _pageController =
+        PageController(initialPage: _currentPage, viewportFraction: 0.7);
   }
 
   @override
@@ -37,22 +39,10 @@ class _CustomCarouselState extends State<CustomCarousel> {
               });
             },
             controller: _pageController,
-            itemCount: 4,
+            itemCount: carouselDataList.length,
             itemBuilder: (context, index) => Customcarousel(
-              title: index == 0
-                  ? "Whiteboard"
-                  : index == 1
-                      ? "Notes"
-                      : index == 2
-                          ? "Script"
-                          : "To-Do",
-              image: index == 0
-                  ? "https://imgs.search.brave.com/HB14see-Aink2I25XWHuDI7XX7lHccSFwUdyXzizn1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kam53/NWEwd3N6a3kwLmNs/b3VkZnJvbnQubmV0/L2lua2ZhY3Rvcnl3/cC93cC1jb250ZW50/L3VwbG9hZHMvMjAx/Ni8xMC9DbGVhbmVk/LUV4YW1wbGUyLmpw/Zw"
-                  : index == 1
-                      ? "https://miro.medium.com/max/4096/1*JPIrVxzu4KmwD7aLf60Q5g.png"
-                      : index == 2
-                          ? "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Screenplay_example.svg/351px-Screenplay_example.svg.png"
-                          : "https://assets.hongkiat.com/uploads/to-do-lists-by-hand/bj-start-here-future-log.jpg",
+              title: carouselDataList[index].title,
+              image: carouselDataList[index].thumbnail,
               onTap: () {},
               selected: false,
             ),
