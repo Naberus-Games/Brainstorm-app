@@ -25,6 +25,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const brainstormTheme = BrainstormTheme();
     return MaterialApp(
+      // The theme mode is set to system, which means that the app will use the
+// current system theme by default.
+
       theme: brainstormTheme.lightToThemeData(),
       darkTheme: brainstormTheme.darkToThemeData(),
       themeMode: ThemeMode.system,
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
         '/Whiteboard-Work-Screen': (context) => const WhiteboardWorkScreen(),
         '/Notes-Work-Screen': (context) => const NotesWorkScreen(),
         '/To-Do-Work-Screen': (context) => const ToDoWorkScreen(),
-        //'/Scripts-Work-Screen' :(context) => context ScriptsWorkScreen(),
+        //'/Scripts-Work-Screen': (context) => context ScriptsWorkScreen(),
       },
     );
   }
