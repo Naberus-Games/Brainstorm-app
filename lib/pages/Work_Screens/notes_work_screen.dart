@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, camel_case_types
 
+import 'package:brainstorm/theme.dart';
 import 'package:flutter/material.dart';
 
 class NotesWorkScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class NotesWorkScreen extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
                   hintText: 'Enter a title',
                   hintStyle: TextStyle(fontSize: 20)),
+              style: TextStyle(fontSize: 20),
             ),
             Padding(padding: EdgeInsets.all(10.0)),
             TextField(
@@ -82,7 +84,7 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        ListTile(
+        const ListTile(
           title: Text(
             'Options',
             style: TextStyle(
@@ -91,57 +93,214 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
           ),
         ),
         ListTile(
-          leading: Icon(Icons.format_bold),
-          title: Text('Bold'),
+          leading: Icon(Icons.format_bold,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Bold'),
         ),
         ListTile(
-          leading: Icon(Icons.format_italic),
-          title: Text('Italic'),
+          leading: Icon(Icons.format_italic,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Italic'),
         ),
         ListTile(
-          leading: Icon(Icons.format_underlined),
-          title: Text('Underline'),
+          leading: Icon(Icons.format_underlined,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Underline'),
         ),
         ListTile(
-          leading: Icon(Icons.strikethrough_s),
-          title: Text('Strikethrough'),
+          leading: Icon(Icons.strikethrough_s,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Strikethrough'),
         ),
         ListTile(
-          leading: Icon(Icons.text_format_sharp),
-          title: Text('Superscript'),
+          leading: Icon(Icons.text_format_sharp,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Superscript'),
         ),
         ListTile(
-          leading: Icon(Icons.text_format_outlined),
-          title: Text('Subscript'),
+          leading: Icon(Icons.text_format_outlined,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Subscript'),
         ),
-        Divider(),
+        const Divider(color: Colors.grey),
         ListTile(
-          leading: Icon(Icons.format_size),
-          title: Text('Paragraph Styles'),
+          onTap: () => paragraphStylesMenu(),
+          leading: Icon(Icons.format_size,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Paragraph Styles'),
+          trailing: const Icon(Icons.arrow_forward_ios),
         ),
         ListTile(
-          leading: Icon(Icons.format_align_left),
-          title: Text('Align'),
+          onTap: () => alignMenu(),
+          leading: Icon(Icons.format_align_left,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Align'),
+          trailing: const Icon(Icons.arrow_forward_ios),
         ),
         ListTile(
           onTap: () => lineSpacingMenu(),
-          leading: Icon(Icons.format_line_spacing),
-          title: Text('Line spacing'),
+          leading: Icon(Icons.format_line_spacing,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Line spacing'),
+          trailing: const Icon(Icons.arrow_forward_ios),
         ),
         ListTile(
-          leading: Icon(Icons.format_list_numbered),
-          title: Text('Numbered lists'),
+          onTap: () => numberedListMenu(),
+          leading: Icon(Icons.format_list_numbered,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Numbered lists'),
+          trailing: const Icon(Icons.arrow_forward_ios),
         ),
         ListTile(
-          leading: Icon(Icons.format_list_bulleted),
-          title: Text('List options'),
+          onTap: () => listOptionsMenu(),
+          leading: Icon(Icons.format_list_bulleted,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('List options'),
+          trailing: const Icon(Icons.arrow_forward_ios),
         ),
-        Divider(),
+        const Divider(color: Colors.grey),
         ListTile(
-          leading: Icon(Icons.format_clear),
-          title: Text('Clear formatting'),
+          leading: Icon(Icons.format_clear,
+              color: const BrainstormTheme().primaryColor),
+          title: const Text('Clear formatting'),
         ),
       ],
+    );
+  }
+
+  paragraphStylesMenu() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Paragraph Styles'),
+          content: SizedBox(
+            height: 340.0,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: const Text('Normal'),
+                  leading: Radio(
+                    value: 1,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Title'),
+                  leading: Radio(
+                    value: 2,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Subtitle'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Heading 1'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Heading 2'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Heading 3'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            MaterialButton(
+              child: const Text('Cancel'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            MaterialButton(
+              child: const Text('Ok'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  alignMenu() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Align'),
+          content: SizedBox(
+            height: 230.0,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: const Text('Left'),
+                  leading: Radio(
+                    value: 1,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Center'),
+                  leading: Radio(
+                    value: 2,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Right'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Justify'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            MaterialButton(
+              child: const Text('Cancel'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            MaterialButton(
+              child: const Text('Ok'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -149,11 +308,11 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        double? _lineSpacing = 1.0;
-        var _customLineSpacing = 1.0;
+        double? lineSpacing = 1.0;
+        var customLineSpacing = 1.0;
         return AlertDialog(
           title: const Text('Line Spacing'),
-          content: Container(
+          content: SizedBox(
             height: 230.0,
             child: Column(
               children: <Widget>[
@@ -161,10 +320,10 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
                   title: const Text('Single'),
                   leading: Radio(
                     value: 1.0,
-                    groupValue: _lineSpacing,
+                    groupValue: lineSpacing,
                     onChanged: (value) {
                       setState(() {
-                        _lineSpacing = value;
+                        lineSpacing = value;
                       });
                     },
                   ),
@@ -173,10 +332,10 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
                   title: const Text('1.15'),
                   leading: Radio(
                     value: 1.15,
-                    groupValue: _lineSpacing,
+                    groupValue: lineSpacing,
                     onChanged: (value) {
                       setState(() {
-                        _lineSpacing = value;
+                        lineSpacing = value;
                       });
                     },
                   ),
@@ -185,10 +344,10 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
                   title: const Text('Double'),
                   leading: Radio(
                     value: 2.0,
-                    groupValue: _lineSpacing,
+                    groupValue: lineSpacing,
                     onChanged: (value) {
                       setState(() {
-                        _lineSpacing = value;
+                        lineSpacing = value;
                       });
                     },
                   ),
@@ -196,13 +355,189 @@ class _bottomSheetContentState extends State<bottomSheetContent> {
                 ListTile(
                   title: const Text('Custom...'),
                   leading: Radio(
-                    value: _customLineSpacing,
-                    groupValue: _lineSpacing,
+                    value: customLineSpacing,
+                    groupValue: lineSpacing,
                     onChanged: (value) {
                       setState(() {
-                        _lineSpacing = value;
+                        lineSpacing = value;
                       });
                     },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            MaterialButton(
+              child: const Text('Cancel'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            MaterialButton(
+              child: const Text('Ok'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  numberedListMenu() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Numbered Lists'),
+          content: SizedBox(
+            height: 400.0,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: const Text('Start with 1'),
+                  leading: Radio(
+                    value: 1,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Start with 2'),
+                  leading: Radio(
+                    value: 2,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Start with 3'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Lowercase Alphabet'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Uppercase Alphabet'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Lowercase Roman Numerals'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Uppercase Roman Numerals'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            MaterialButton(
+              child: const Text('Cancel'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            MaterialButton(
+              child: const Text('Ok'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  listOptionsMenu() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('List Options'),
+          content: SizedBox(
+            height: 450.0,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: const Text('Indent'),
+                  leading: Radio(
+                    value: 1,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Outdent'),
+                  leading: Radio(
+                    value: 2,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Increase Level'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Decrease Level'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Bullet Style'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Number Style'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Increase Indent'),
+                  leading: Radio(
+                    value: 3,
+                    groupValue: 1,
+                    onChanged: (value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Decrease Indent'),
+                  leading: Radio(
+                    value: 4,
+                    groupValue: 1,
+                    onChanged: (value) {},
                   ),
                 ),
               ],
