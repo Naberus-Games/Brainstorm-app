@@ -4,7 +4,7 @@ import 'package:brainstorm/main.dart';
 import 'package:brainstorm/theme.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
-import '../../widgets/custom_carousel.dart';
+import '../../widgets/recents.dart';
 import 'package:flutter/material.dart';
 
 const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;
@@ -141,22 +141,22 @@ class NotesWorkScreen extends StatelessWidget {
                 ),
               ),
               const SliverToBoxAdapter(
-                child: CustomCarousel(),
+                child: Recents(),
               ),
               const SliverToBoxAdapter(
-                child: CustomCarousel(),
+                child: Recents(),
               ),
               const SliverToBoxAdapter(
-                child: CustomCarousel(),
+                child: Recents(),
               ),
               const SliverToBoxAdapter(
-                child: CustomCarousel(),
+                child: Recents(),
               ),
               const SliverToBoxAdapter(
-                child: CustomCarousel(),
+                child: Recents(),
               ),
               const SliverToBoxAdapter(
-                child: CustomCarousel(),
+                child: Recents(),
               ),
             ],
           ),
