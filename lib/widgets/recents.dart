@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import '../models/custom_carousel_data.dart';
+import '../models/recents_data.dart';
 
-class CustomCarousel extends StatefulWidget {
-  const CustomCarousel({Key? key}) : super(key: key);
+class Recents extends StatefulWidget {
+  const Recents({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _CustomCarouselState createState() => _CustomCarouselState();
+  _RecentsState createState() => _RecentsState();
 }
 
-class _CustomCarouselState extends State<CustomCarousel> {
+class _RecentsState extends State<Recents> {
   late PageController _pageController;
   int _currentPage = 0;
 
   @override
   void initState() {
     super.initState();
-    _pageController =
-        PageController(initialPage: _currentPage, viewportFraction: 0.7);
   }
 
   @override
@@ -28,30 +26,57 @@ class _CustomCarouselState extends State<CustomCarousel> {
 
   @override
   Widget build(BuildContext context) {
+    const viewportFraction = 0.7;
+    _pageController = PageController(
+        initialPage: _currentPage, viewportFraction: viewportFraction);
+    //final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    // Determines the type of the carousel.
+    var mobileView = SizedBox(
+      height: 240,
+      child: PageView.builder(
+        onPageChanged: (index) {
+          setState(() {
+            _currentPage = index;
+          });
+        },
+        controller: _pageController,
+        itemCount: carouselDataList.length,
+        itemBuilder: (context, index) => Customcarousel(
+          title: carouselDataList[index].title,
+          image: carouselDataList[index].thumbnail,
+          onTap: () {},
+          selected: false,
+        ),
+      ),
+    );
+
+    var desktopView = SizedBox(
+      height: 240,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        controller: _pageController,
+        itemCount: carouselDataList.length,
+        itemBuilder: (context, index) => Customcarousel(
+          title: carouselDataList[index].title,
+          image: carouselDataList[index].thumbnail,
+          onTap: () {},
+          selected: false,
+        ),
+      ),
+    );
+
+    var animatedPageIndicatorFb1 = AnimatedPageIndicatorFb1(
+      currentPage: _currentPage,
+      numPages: carouselDataList.length,
+    );
+
     return Column(
       children: [
-        SizedBox(
-          height: 240,
-          child: PageView.builder(
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
-            controller: _pageController,
-            itemCount: carouselDataList.length,
-            itemBuilder: (context, index) => Customcarousel(
-              title: carouselDataList[index].title,
-              image: carouselDataList[index].thumbnail,
-              onTap: () {},
-              selected: false,
-            ),
-          ),
-        ),
-        AnimatedPageIndicatorFb1(
-          currentPage: _currentPage,
-          numPages: 4,
-        )
+        (screenWidth > 600) ? desktopView : mobileView,
+        (screenWidth > 600)
+            ? const Padding(padding: EdgeInsets.zero)
+            : animatedPageIndicatorFb1
       ],
     );
   }
