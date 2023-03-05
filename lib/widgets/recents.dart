@@ -6,10 +6,10 @@ class Recents extends StatefulWidget {
 
   @override
   // ignore: library_private_types_in_public_api
-  _RecentsSmallState createState() => _RecentsSmallState();
+  _RecentsState createState() => _RecentsState();
 }
 
-class _RecentsSmallState extends State<Recents> {
+class _RecentsState extends State<Recents> {
   late PageController _pageController;
   int _currentPage = 0;
 
@@ -29,7 +29,7 @@ class _RecentsSmallState extends State<Recents> {
     const viewportFraction = 0.7;
     _pageController = PageController(
         initialPage: _currentPage, viewportFraction: viewportFraction);
-    final screenHeight = MediaQuery.of(context).size.height;
+    //final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     // Determines the type of the carousel.
     var mobileView = SizedBox(

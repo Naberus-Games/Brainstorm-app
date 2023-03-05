@@ -13,6 +13,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'models/firebase_options.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'theme.dart';
 
 const leftVal = 20.0, rightVal = 20.0, topVal = 4.0, bottomVal = 4.0;

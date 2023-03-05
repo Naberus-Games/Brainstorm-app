@@ -1,3 +1,8 @@
+import 'package:firebase_storage/firebase_storage.dart';
+
+final storage = FirebaseStorage.instance;
+final storageRef = FirebaseStorage.instance.ref();
+
 class RecentsData {
   final int pageNumber;
   final String title;
@@ -11,7 +16,7 @@ List<RecentsData> carouselDataList = [
   RecentsData(
       1,
       'Whiteboard',
-      'https://imgs.search.brave.com/HB14see-Aink2I25XWHuDI7XX7lHccSFwUdyXzizn1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kam53/NWEwd3N6a3kwLmNs/b3VkZnJvbnQubmV0/L2lua2ZhY3Rvcnl3/cC93cC1jb250ZW50/L3VwbG9hZHMvMjAx/Ni8xMC9DbGVhbmVk/LUV4YW1wbGUyLmpw/Zw',
+      'https://firebasestorage.googleapis.com/v0/b/brainstorm-223f9.appspot.com/o/Cleaned-Example2.jpg?alt=media&token=9b59037e-c419-4b36-96ba-26e199b5facb',
       null),
   RecentsData(
       2,
@@ -21,21 +26,21 @@ List<RecentsData> carouselDataList = [
   RecentsData(
       3,
       'To-Do',
-      'https://assets.hongkiat.com/uploads/to-do-lists-by-hand/bj-start-here-future-log.jpg',
+      'https://firebasestorage.googleapis.com/v0/b/brainstorm-223f9.appspot.com/o/bj-start-here-future-log.jpg?alt=media&token=01aae888-fd0a-42d0-b1b4-5ecd657eaa6a',
       null),
   RecentsData(
       4,
       'Scripts',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Screenplay_example.svg/351px-Screenplay_example.svg.png',
+      'https://firebasestorage.googleapis.com/v0/b/brainstorm-223f9.appspot.com/o/Screenplay_example.svg.png?alt=media&token=b880e890-f870-4fda-8374-cb4f4e1ef3a9',
       null),
   RecentsData(
       5,
       'Scripts',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Screenplay_example.svg/351px-Screenplay_example.svg.png',
+      'https://firebasestorage.googleapis.com/v0/b/brainstorm-223f9.appspot.com/o/Screenplay_example.svg.png?alt=media&token=b880e890-f870-4fda-8374-cb4f4e1ef3a9',
       null),
   RecentsData(
       6,
       'Scripts',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Screenplay_example.svg/351px-Screenplay_example.svg.png',
+      'https://firebasestorage.googleapis.com/v0/b/brainstorm-223f9.appspot.com/o/Screenplay_example.svg.png?alt=media&token=b880e890-f870-4fda-8374-cb4f4e1ef3a9',
       null),
 ];

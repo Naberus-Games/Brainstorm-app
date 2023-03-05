@@ -1,4 +1,4 @@
-import 'package:brainstorm/main.dart';
+//import 'package:brainstorm/main.dart';
 import 'package:brainstorm/theme.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
@@ -21,8 +21,8 @@ class _FilesScreensState extends State<FilesScreens> {
   @override
   Widget build(BuildContext context) {
     // Gets the height and width of the screen.
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
+    //final screenHeight = MediaQuery.of(context).size.height;
+    //final screenWidth = MediaQuery.of(context).size.width;
 
     return GestureDetector(
       // Dismisses the keyboard when the user taps elsewhere on the screen.
@@ -116,21 +116,21 @@ class _FilesScreensState extends State<FilesScreens> {
                 ),
               ),
               ListTile(
-                title: Text('Home'),
+                title: const Text('Home'),
                 onTap: () {
                   // Update the state of the app.
                   // ...
                 },
               ),
               ListTile(
-                title: Text('Files'),
+                title: const Text('Files'),
                 onTap: () {
                   // Update the state of the app.
                   // ...
                 },
               ),
               ListTile(
-                title: Text('Settings'),
+                title: const Text('Settings'),
                 onTap: () {
                   // Update the state of the app.
                   // ...
