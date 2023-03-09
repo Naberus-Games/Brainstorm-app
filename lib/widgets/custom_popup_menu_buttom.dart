@@ -25,9 +25,6 @@ class ProfilePopupMenuButton extends StatelessWidget {
             Navigator.pushNamed(context, '/Profile-Screen');
             break;
           case 2:
-            Navigator.pushNamed(context, '/Settings-Screen');
-            break;
-          case 3:
             Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
             break;
         }
@@ -48,17 +45,6 @@ class ProfilePopupMenuButton extends StatelessWidget {
         ),
         PopupMenuItem(
           value: 2,
-          child: ListTile(
-            leading: Icon(
-              Icons.settings,
-              color: const BrainstormTheme().primaryColor,
-            ),
-            title:
-                Text('Setting', style: Theme.of(context).textTheme.bodyMedium),
-          ),
-        ),
-        PopupMenuItem(
-          value: 3,
           child: ListTile(
             leading: const Icon(
               Icons.logout,

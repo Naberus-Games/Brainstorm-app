@@ -1,4 +1,5 @@
 //import 'package:brainstorm/main.dart';
+import 'package:brainstorm/main.dart';
 import 'package:brainstorm/theme.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
@@ -46,7 +47,7 @@ class _FilesScreensState extends State<FilesScreens> {
               flexibleSpace: const FlexibleSpaceBar(
                 titlePadding: EdgeInsets.fromLTRB(15, 0, 0, 5),
                 title: Text(
-                  "Files",
+                  "Recents",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
                 centerTitle: false,
@@ -71,27 +72,15 @@ class _FilesScreensState extends State<FilesScreens> {
             ),
             SliverList(
                 delegate: SliverChildListDelegate([
-              const CustomHeading(text: 'Recents'),
+              //TODO: NavigationRail(destinations: destinations, selectedIndex: selectedIndex)
               const Recents(),
-              const CustomHeading(text: 'Categories'),
+              const CustomHeading(text: 'Files'),
               filledRouteBtn(Icons.crop_original, "Whiteboard",
                   "Whiteboard-Screen", context),
               filledRouteBtn(Icons.notes, "Notes", "Notes-Screen", context),
               filledRouteBtn(Icons.check_box, "To Do", "To-Do-Screen", context),
               filledRouteBtn(
                   Icons.edit_document, "Scripts", "Scripts-Screen", context),
-              const CustomHeading(text: 'Storage'),
-              filledRouteBtn(Icons.location_city, "Local/SMB",
-                  "Local-Files-Screen", context),
-              filledRouteBtn(
-                  Icons.cloud, "iCloud", "iCloud-Files-Screen", context),
-              filledRouteBtn(Icons.wb_cloudy, "OneDrive",
-                  "Onedrive-Files-Screen", context),
-              filledRouteBtn(Icons.add_to_drive_outlined, "Google Drive",
-                  "Google-Drive-File-Screen", context),
-              filledRouteBtn(Icons.flash_on, "Brainstorm Cloud",
-                  "Brainstorm-Files-Screen", context),
-              const Padding(padding: EdgeInsets.all(15), child: Text('')),
             ])),
           ],
         ),
@@ -100,41 +89,66 @@ class _FilesScreensState extends State<FilesScreens> {
           child: const NewFilePopupMenuButton(),
         ),
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
+          backgroundColor: const Color.fromARGB(255, 29, 29, 29),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text(
-                  'Brainstorm',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: CircleAvatar(
+                    radius: 25,
+                    backgroundColor: Colors.transparent,
+                    child: IconButton(
+                        onPressed: () {
+                          _key.currentState?.closeDrawer();
+                        },
+                        iconSize: 25,
+                        icon: Icon(Icons.menu_open,
+                            color: const BrainstormTheme().primaryColor,
+                            size: 30)),
                   ),
                 ),
               ),
-              ListTile(
-                title: const Text('Home'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
+              Expanded(
+                child: ListView(children: [
+                  const CustomHeading(text: 'Storage'),
+                  filledRouteBtn(Icons.location_city, "Local/SMB",
+                      "Local-Files-Screen", context),
+                  filledRouteBtn(
+                      Icons.cloud, "iCloud", "iCloud-Files-Screen", context),
+                  filledRouteBtn(Icons.wb_cloudy, "OneDrive",
+                      "Onedrive-Files-Screen", context),
+                  filledRouteBtn(Icons.add_to_drive_outlined, "Google Drive",
+                      "Google-Drive-File-Screen", context),
+                  filledRouteBtn(Icons.flash_on, "Brainstorm Cloud",
+                      "Brainstorm-Files-Screen", context),
+                ]),
               ),
-              ListTile(
-                title: const Text('Files'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: const Text('Settings'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                        icon: Icon(Icons.settings,
+                            color: const BrainstormTheme().primaryColor,
+                            size: 30),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/Settings-Screen');
+                        }),
+                    IconButton(
+                        icon: Icon(Icons.light_mode,
+                            color: const BrainstormTheme().primaryColor,
+                            size: 30),
+                        onPressed: () {
+                          setDarkMode = true;
+                          setState(() {});
+                        }),
+                  ],
+                ),
               ),
             ],
           ),
