@@ -64,8 +64,8 @@ Widget filledUpdateBtn(String text, String? action, BuildContext context) {
       },
       style: ButtonStyle(
           alignment: Alignment.center,
-          backgroundColor: MaterialStatePropertyAll<Color>(
-              const BrainstormTheme().primaryColor)),
+          backgroundColor:
+              MaterialStatePropertyAll<Color>(BrainstormTheme().primaryColor)),
       child: Text(
         text,
         textScaleFactor: 1.2,

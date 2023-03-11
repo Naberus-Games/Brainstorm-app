@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
             Navigator.of(context)
                 .pushNamedAndRemoveUntil('/Files-Screen', (route) => false);
           },
-          backgroundColor: const BrainstormTheme().primaryColor,
+          backgroundColor: BrainstormTheme().primaryColor,
           foregroundColor: Colors.white,
           child: const Icon(Icons.login),
         ),

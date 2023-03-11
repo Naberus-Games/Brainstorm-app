@@ -13,8 +13,8 @@ Widget customTextField(
     child: Container(
       decoration: BoxDecoration(
         color: context.isDarkMode
-            ? const BrainstormTheme().darkAccentColor
-            : const BrainstormTheme().lightAccentColor,
+            ? BrainstormTheme().darkAccentColor
+            : BrainstormTheme().lightAccentColor,
         borderRadius: BorderRadius.circular(radialVal),
       ),
       child: TextField(

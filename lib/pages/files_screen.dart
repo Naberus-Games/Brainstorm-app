@@ -1,5 +1,6 @@
 //import 'package:brainstorm/main.dart';
 import 'package:brainstorm/main.dart';
+import 'package:provider/provider.dart';
 import 'package:brainstorm/theme.dart';
 import 'package:brainstorm/widgets/categories_button.dart';
 import 'package:brainstorm/widgets/custom_headings.dart';
@@ -24,7 +25,7 @@ class _FilesScreensState extends State<FilesScreens> {
     // Gets the height and width of the screen.
     //final screenHeight = MediaQuery.of(context).size.height;
     //final screenWidth = MediaQuery.of(context).size.width;
-
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
     return GestureDetector(
       // Dismisses the keyboard when the user taps elsewhere on the screen.
       onTap: () {
@@ -89,7 +90,6 @@ class _FilesScreensState extends State<FilesScreens> {
           child: const NewFilePopupMenuButton(),
         ),
         drawer: Drawer(
-          backgroundColor: const Color.fromARGB(255, 29, 29, 29),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -140,12 +140,14 @@ class _FilesScreensState extends State<FilesScreens> {
                           Navigator.of(context).pushNamed('/Settings-Screen');
                         }),
                     IconButton(
-                        icon: Icon(Icons.light_mode,
+                        icon: Icon(
+                            context.isDarkMode
+                                ? Icons.light_mode
+                                : Icons.dark_mode,
                             color: const BrainstormTheme().primaryColor,
                             size: 30),
                         onPressed: () {
-                          setDarkMode = true;
-                          setState(() {});
+                          themeNotifier.toggleTheme();
                         }),
                   ],
                 ),

@@ -22,7 +22,7 @@ class WhiteboardWorkScreen extends StatelessWidget {
       fullyStretchable: true,
       //expandedBody: const CameraPreview(),
       backgroundColor: Colors.white,
-      appBarColor: const BrainstormTheme().lightAccentColor,
+      appBarColor: BrainstormTheme().lightAccentColor,
     );
   }
 
@@ -53,7 +53,7 @@ class WhiteboardWorkScreen extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)))
         ],
       ),
-      backgroundColor: const BrainstormTheme().lightAccentColor,
+      backgroundColor: BrainstormTheme().lightAccentColor,
     );
   }
 

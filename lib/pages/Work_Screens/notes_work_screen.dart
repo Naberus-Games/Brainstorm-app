@@ -38,12 +38,12 @@ class NotesWorkScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20.0)),
                       icon: Icon(
                         Icons.account_circle,
-                        color: const BrainstormTheme().primaryColor,
+                        color: BrainstormTheme().primaryColor,
                         size: 40,
                       ),
                       color: context.isDarkMode
-                          ? const BrainstormTheme().darkAccentColor
-                          : const BrainstormTheme().lightAccentColor,
+                          ? BrainstormTheme().darkAccentColor
+                          : BrainstormTheme().lightAccentColor,
                       onSelected: (value) {
                         switch (value) {
                           case 1:
@@ -64,7 +64,7 @@ class NotesWorkScreen extends StatelessWidget {
                           child: ListTile(
                             leading: Icon(
                               Icons.person,
-                              color: const BrainstormTheme().primaryColor,
+                              color: BrainstormTheme().primaryColor,
                             ),
                             title: Text('Profile',
                                 style: Theme.of(context).textTheme.bodyMedium),
@@ -75,7 +75,7 @@ class NotesWorkScreen extends StatelessWidget {
                           child: ListTile(
                             leading: Icon(
                               Icons.settings,
-                              color: const BrainstormTheme().primaryColor,
+                              color: BrainstormTheme().primaryColor,
                             ),
                             title: Text('Setting',
                                 style: Theme.of(context).textTheme.bodyMedium),
@@ -123,8 +123,8 @@ class NotesWorkScreen extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: context.isDarkMode
-                            ? const BrainstormTheme().darkAccentColor
-                            : const BrainstormTheme().lightAccentColor,
+                            ? BrainstormTheme().darkAccentColor
+                            : BrainstormTheme().lightAccentColor,
                         borderRadius: BorderRadius.circular(radialVal),
                       ),
                       child: const TextField(
@@ -171,8 +171,8 @@ class NotesWorkScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               color: context.isDarkMode
-                  ? const BrainstormTheme().darkAccentColor
-                  : const BrainstormTheme().lightAccentColor,
+                  ? BrainstormTheme().darkAccentColor
+                  : BrainstormTheme().lightAccentColor,
               onSelected: (value) {
                 switch (value) {
                   case 1:
@@ -195,7 +195,7 @@ class NotesWorkScreen extends StatelessWidget {
                   child: ListTile(
                     leading: Icon(
                       Icons.crop_original,
-                      color: const BrainstormTheme().primaryColor,
+                      color: BrainstormTheme().primaryColor,
                     ),
                     title: Text('Whiteboard',
                         style: Theme.of(context).textTheme.bodyMedium),
@@ -206,7 +206,7 @@ class NotesWorkScreen extends StatelessWidget {
                   child: ListTile(
                     leading: Icon(
                       Icons.notes,
-                      color: const BrainstormTheme().primaryColor,
+                      color: BrainstormTheme().primaryColor,
                     ),
                     title: Text('Notes',
                         style: Theme.of(context).textTheme.bodyMedium),
@@ -217,7 +217,7 @@ class NotesWorkScreen extends StatelessWidget {
                   child: ListTile(
                     leading: Icon(
                       Icons.check_box,
-                      color: const BrainstormTheme().primaryColor,
+                      color: BrainstormTheme().primaryColor,
                     ),
                     title: Text(
                       'Todo',
@@ -230,7 +230,7 @@ class NotesWorkScreen extends StatelessWidget {
                   child: ListTile(
                     leading: Icon(
                       Icons.edit_document,
-                      color: const BrainstormTheme().primaryColor,
+                      color: BrainstormTheme().primaryColor,
                     ),
                     title: Text('Scripts',
                         style: Theme.of(context).textTheme.bodyMedium),

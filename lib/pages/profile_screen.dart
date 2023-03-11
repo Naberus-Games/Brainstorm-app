@@ -34,8 +34,7 @@ class ProfileScreen extends StatelessWidget {
                       backgroundColor: Colors.white,
                       radius: 100,
                       child: Icon(Icons.person,
-                          size: 150.0,
-                          color: const BrainstormTheme().primaryColor)),
+                          size: 150.0, color: BrainstormTheme().primaryColor)),
                 ),
                 //end profile icon
                 customTextField('First Name', Icons.abc, false, context),

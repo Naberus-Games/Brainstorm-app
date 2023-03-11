@@ -12,6 +12,7 @@ import 'package:brainstorm/pages/settings_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'models/firebase_options.dart';
 //import 'package:firebase_storage/firebase_storage.dart';
 import 'theme.dart';
@@ -33,42 +34,42 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // The theme mode is set to system, which means that the app will use the
-// current system theme by default.
-      title: 'Brainstorm',
-      scrollBehavior: AppScrollBehavior(),
-      theme: context.isDarkMode
-          ? currentTheme.darkToThemeData()
-          : currentTheme.lightToThemeData(),
-      themeMode: ThemeMode.system,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const LoginScreen(),
-        '/Files-Screen': (context) => const FilesScreens(),
-        '/Whiteboard-Screen': (context) => const WhiteboardFilesScreen(),
-        '/Notes-Screen': (context) => const NotesFilesScreen(),
-        '/To-Do-Screen': (context) => const ToDoFilesScreen(),
-        '/Scripts-Screen': (context) => const ScriptsFilesScreen(),
-        '/Profile-Screen': (context) => const ProfileScreen(),
-        '/Settings-Screen': (context) => const SettingsScreen(),
-        '/Whiteboard-Work-Screen': (context) => const WhiteboardWorkScreen(),
-        '/Notes-Work-Screen': (context) => const NotesWorkScreen(),
-        '/To-Do-Work-Screen': (context) => const ToDoWorkScreen(),
-        //'/Scripts-Work-Screen': (context) => context ScriptsWorkScreen(),
-      },
-    );
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+      create: (context) => ThemeNotifier(),
+      builder: (context, child) {
+        final themeNotifier = Provider.of<ThemeNotifier>(context);
+        return MaterialApp(
+          title: 'Brainstorm',
+          scrollBehavior: AppScrollBehavior(),
+          theme: currentTheme.lightToThemeData(),
+          darkTheme: currentTheme.darkToThemeData(),
+          themeMode: themeNotifier.themeMode,
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const LoginScreen(),
+            '/Files-Screen': (context) => const FilesScreens(),
+            '/Whiteboard-Screen': (context) => const WhiteboardFilesScreen(),
+            '/Notes-Screen': (context) => const NotesFilesScreen(),
+            '/To-Do-Screen': (context) => const ToDoFilesScreen(),
+            '/Scripts-Screen': (context) => const ScriptsFilesScreen(),
+            '/Profile-Screen': (context) => const ProfileScreen(),
+            '/Settings-Screen': (context) => const SettingsScreen(),
+            '/Whiteboard-Work-Screen': (context) =>
+                const WhiteboardWorkScreen(),
+            '/Notes-Work-Screen': (context) => const NotesWorkScreen(),
+            '/To-Do-Work-Screen': (context) => const ToDoWorkScreen(),
+            //'/Scripts-Work-Screen': (context) => context ScriptsWorkScreen(),
+          },
+        );
+      });
 }
-
-bool setDarkMode = false;
 
 extension DarkMode on BuildContext {
   /// is dark mode currently enabled?
+  get themeMode => Provider.of<ThemeNotifier>(this).themeMode;
   bool get isDarkMode {
-    // final brightness = MediaQuery.of(this).platformBrightness;
-    return setDarkMode /* brightness == Brightness.dark */;
+    //final brightness = themeMode;
+    return themeMode == ThemeMode.dark;
   }
 }
 

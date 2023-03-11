@@ -72,7 +72,7 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                           },
                           icon: Icon(
                             Icons.delete,
-                            color: const BrainstormTheme().primaryColor,
+                            color: BrainstormTheme().primaryColor,
                           )),
                     ),
                   ),
@@ -98,8 +98,8 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: context.isDarkMode
-                            ? const BrainstormTheme().darkAccentColor
-                            : const BrainstormTheme().lightAccentColor,
+                            ? BrainstormTheme().darkAccentColor
+                            : BrainstormTheme().lightAccentColor,
                         borderRadius: BorderRadius.circular(radialVal),
                       ),
                       child: TextField(
@@ -146,7 +146,7 @@ class _ToDoListState extends State<ToDoFilesScreen> {
                     style: ButtonStyle(
                         alignment: Alignment.center,
                         backgroundColor: MaterialStatePropertyAll<Color>(
-                            const BrainstormTheme().primaryColor)),
+                            BrainstormTheme().primaryColor)),
                     child: const Text(
                       "Delete Index",
                       textScaleFactor: 1.2,
@@ -168,7 +168,7 @@ class _ToDoListState extends State<ToDoFilesScreen> {
           floatingActionButton: FloatingActionButton(
             child: Icon(
               Icons.add,
-              color: const BrainstormTheme().lightAccentColor,
+              color: BrainstormTheme().lightAccentColor,
             ),
             onPressed: () async {
               //

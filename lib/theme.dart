@@ -33,6 +33,11 @@ class BrainstormTheme {
                   MaterialStatePropertyAll<Color>(lightAccentColor))),
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: primaryColor),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: lightAccentColor,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+      ),
     );
   }
 
@@ -54,6 +59,22 @@ class BrainstormTheme {
                   MaterialStatePropertyAll<Color>(darkAccentColor))),
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: primaryColor),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: darkAccentColor,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+      ),
     );
+  }
+}
+
+class ThemeNotifier extends ChangeNotifier {
+  ThemeMode themeMode = ThemeMode.light;
+
+  bool get isDarkMode => themeMode == ThemeMode.light;
+
+  void toggleTheme() {
+    themeMode = themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    notifyListeners();
   }
 }

@@ -13,12 +13,12 @@ class ProfilePopupMenuButton extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       icon: Icon(
         Icons.account_circle,
-        color: const BrainstormTheme().primaryColor,
+        color: BrainstormTheme().primaryColor,
         size: 40,
       ),
       color: context.isDarkMode
-          ? const BrainstormTheme().darkAccentColor
-          : const BrainstormTheme().lightAccentColor,
+          ? BrainstormTheme().darkAccentColor
+          : BrainstormTheme().lightAccentColor,
       onSelected: (value) {
         switch (value) {
           case 1:
@@ -35,7 +35,7 @@ class ProfilePopupMenuButton extends StatelessWidget {
           child: ListTile(
             leading: Icon(
               Icons.person,
-              color: const BrainstormTheme().primaryColor,
+              color: BrainstormTheme().primaryColor,
             ),
             title: Text(
               'Profile',
@@ -80,8 +80,8 @@ class NewFilePopupMenuButton extends StatelessWidget {
         color: Colors.white,
       ),
       color: context.isDarkMode
-          ? const BrainstormTheme().darkAccentColor
-          : const BrainstormTheme().lightAccentColor,
+          ? BrainstormTheme().darkAccentColor
+          : BrainstormTheme().lightAccentColor,
       onSelected: (value) {
         switch (value) {
           case 1:
@@ -104,7 +104,7 @@ class NewFilePopupMenuButton extends StatelessWidget {
           child: ListTile(
             leading: Icon(
               Icons.crop_original,
-              color: const BrainstormTheme().primaryColor,
+              color: BrainstormTheme().primaryColor,
             ),
             title: Text('Whiteboard',
                 style: Theme.of(context).textTheme.bodyMedium),
@@ -115,7 +115,7 @@ class NewFilePopupMenuButton extends StatelessWidget {
           child: ListTile(
             leading: Icon(
               Icons.notes,
-              color: const BrainstormTheme().primaryColor,
+              color: BrainstormTheme().primaryColor,
             ),
             title: Text('Notes', style: Theme.of(context).textTheme.bodyMedium),
           ),
@@ -125,7 +125,7 @@ class NewFilePopupMenuButton extends StatelessWidget {
           child: ListTile(
             leading: Icon(
               Icons.check_box,
-              color: const BrainstormTheme().primaryColor,
+              color: BrainstormTheme().primaryColor,
             ),
             title: Text(
               'To Do',
@@ -138,7 +138,7 @@ class NewFilePopupMenuButton extends StatelessWidget {
           child: ListTile(
             leading: Icon(
               Icons.edit_document,
-              color: const BrainstormTheme().primaryColor,
+              color: BrainstormTheme().primaryColor,
             ),
             title:
                 Text('Scripts', style: Theme.of(context).textTheme.bodyMedium),
